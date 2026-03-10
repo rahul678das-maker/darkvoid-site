@@ -1,295 +1,334 @@
-<h1>Darkvoid</h1>
-<p>Where Clarity Begins in Chaos</p>
-export default function DarkvoidHomepage() {
-  const logoSrc = "logo.png";
+<!DOCTYPE html>
+<html lang="en">
 
-  const research = [
-    {
-      title: 'Behavioural Systems Economics',
-      text: 'Examining how institutional behaviour, structural incentives, and systemic pressures interact across economic and public environments.',
-    },
-    {
-      title: 'Institutional Design & Policy Architecture',
-      text: 'Exploring how policies, governance structures, and decision systems can be designed with greater clarity, coherence, and long-term public value.',
-    },
-    {
-      title: 'Access, Governance & System Failure',
-      text: 'Studying the frictions, exclusions, and structural blind spots that shape real-world access across services, payments, institutions, and social systems.',
-    },
-  ];
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darkvoid</title>
 
-  const projects = [
-    {
-      title: 'A³M Pipeline',
-      text: 'A core Darkvoid framework examining how algorithmic escalation, access failure, payment enablement, and offline harm can interact across vulnerable systems.',
-    },
-    {
-      title: 'Health Access Systems',
-      text: 'A policy-grounded project focused on structural barriers, waiting-time pressure, service reach, and the lived realities of healthcare access.',
-    },
-    {
-      title: 'Irish Farmers Policy',
-      text: 'A structural policy project exploring fairness, transparency, bargaining power, and the economic pressures shaping Irish farming outcomes.',
-    },
-    {
-      title: 'One Card',
-      text: 'A systems-focused concept exploring access design, service usability, and the wider implications of streamlined public and civic interaction models.',
-    },
-    {
-      title: 'Criminomics',
-      text: 'An emerging intellectual field linking illicit markets, economic incentives, systemic vulnerability, and institutional response.',
-    },
-    {
-      title: 'Community Fund',
-      text: 'A contribution-based social architecture showing how distributed small-scale participation can build collective capacity and local impact.',
-    },
-    {
-      title: 'Kerala Model 2.0',
-      text: 'A long-range social and economic framework exploring participation, resilience, contribution, and broader public-value design.',
-    },
-  ];
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  const branches = [
-    {
-      title: 'Darkvoid Research',
-      text: 'Original frameworks, systems papers, policy notes, and analytical work shaped by intellectual depth and structural seriousness.',
-    },
-    {
-      title: 'Darkvoid Projects',
-      text: 'Live initiatives, policy-grounded work, and conceptual frameworks presented in the true order of Darkvoid’s development.',
-    },
-    {
-      title: 'Darkvoid Advisory',
-      text: 'Strategic interpretation, systems diagnosis, policy insight, and premium analytical support for serious collaborators.',
-    },
-    {
-      title: 'Darkvoid Platform',
-      text: 'A coherent architecture where research, projects, and advisory remain distinct in tone while belonging to one unified Darkvoid identity.',
-    },
-  ];
+<style>
 
-  return (
-    <div className="min-h-screen overflow-x-hidden bg-[#ECECE7] text-[#0B1A24] font-sans">
-      <div className="fixed inset-0 -z-20 bg-[radial-gradient(circle_at_top,rgba(11,26,36,0.18),transparent_30%),radial-gradient(circle_at_82%_18%,rgba(11,26,36,0.14),transparent_24%),linear-gradient(to_bottom,#ECECE7,#E2E4E0)]" />
-      <div className="fixed inset-0 -z-10 opacity-[0.06] bg-[linear-gradient(#0B1A24_1px,transparent_1px),linear-gradient(90deg,#0B1A24_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-      <header className="sticky top-0 z-50 border-b border-black/5 bg-[#ECECE7]/70 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#home" className="flex items-center gap-3">
-            <img src={logoSrc} alt="Darkvoid logo" className="h-10 w-auto" />
-          </a>
-
-          <nav className="hidden items-center gap-10 text-sm tracking-[0.18em] md:flex">
-            <a href="#about" className="transition hover:opacity-60">ABOUT</a>
-            <a href="#research" className="transition hover:opacity-60">RESEARCH</a>
-            <a href="#projects" className="transition hover:opacity-60">PROJECTS</a>
-            <a href="#platform" className="transition hover:opacity-60">PLATFORM</a>
-            <a href="#contact" className="transition hover:opacity-60">CONTACT</a>
-          </nav>
-        </div>
-      </header>
-
-      <main>
-        <section id="home" className="relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.10] bg-[radial-gradient(circle_at_68%_34%,rgba(11,26,36,0.18),transparent_16%),radial-gradient(circle_at_72%_42%,rgba(11,26,36,0.12),transparent_28%)]" />
-          <div className="mx-auto grid min-h-[96vh] max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <div className="inline-flex items-center gap-3 rounded-full border border-[#0B1A24]/10 bg-white/85 px-4 py-2 shadow-sm">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#0B1A24] shadow-[0_0_0_8px_rgba(11,26,36,0.06)]" />
-                <span className="text-[11px] uppercase tracking-[0.35em] text-[#0B1A24]/65">
-                  Where Clarity Begins in Chaos
-                </span>
-              </div>
-
-              <h1 className="mt-7 max-w-4xl text-5xl font-semibold leading-[1.02] md:text-7xl xl:text-[5.5rem]">
-                Darkvoid is a premium research and strategic platform built to turn complexity into structure, authority, and meaningful public value.
-              </h1>
-
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-[#0B1A24]/72 md:text-xl">
-                Darkvoid brings together research, policy thinking, live projects, and advisory into one coherent architecture — designed to confront difficult systems seriously, refine them with precision, and translate them into sharper frameworks, stronger ideas, and more credible action.
-              </p>
-
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a href="#projects" className="rounded-2xl bg-[#0B1A24] px-7 py-3.5 text-sm font-medium tracking-[0.12em] text-white shadow-[0_18px_50px_rgba(11,26,36,0.18)] transition hover:-translate-y-0.5">
-                  Explore the Work
-                </a>
-                <a href="#platform" className="rounded-2xl border border-[#0B1A24]/15 bg-white/80 px-7 py-3.5 text-sm font-medium tracking-[0.12em] text-[#0B1A24] shadow-sm transition hover:-translate-y-0.5">
-                  View the Platform
-                </a>
-              </div>
-
-              <div className="mt-14 grid max-w-2xl gap-4 sm:grid-cols-3">
-                {[
-                  ['Research', 'Original frameworks, policy notes, systems analysis, and intellectual depth.'],
-                  ['Projects', 'A3M Pipeline, Health Access Systems, Irish Farmers Policy, One Card, Criminomics, Community Fund, and Kerala Model 2.0.'],
-                  ['Advisory', 'Strategic interpretation, institutional clarity, and premium analytical support.'],
-                ].map(([title, text]) => (
-                  <div key={title} className="rounded-[1.6rem] border border-black/5 bg-white/72 p-5 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(11,26,36,0.10)]">
-                    <div className="text-xs uppercase tracking-[0.28em] text-[#0B1A24]/45">{title}</div>
-                    <div className="mt-3 text-sm leading-6 text-[#0B1A24]/72">{text}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative flex items-center justify-center">
-              <div className="absolute h-[560px] w-[560px] rounded-full bg-[#0B1A24]/18 blur-[140px]" />
-              <div className="absolute h-[660px] w-[660px] rounded-full border border-[#0B1A24]/8" />
-              <div className="absolute h-[760px] w-[760px] rounded-full border border-[#0B1A24]/5" />
-
-              <div className="relative flex aspect-square w-full max-w-[560px] items-center justify-center rounded-[2.6rem] border border-white/50 bg-[#0B1A24]/10 p-8 shadow-[0_30px_120px_rgba(11,26,36,0.16)] backdrop-blur-2xl">
-                <div className="absolute inset-6 rounded-[2rem] border border-[#0B1A24]/8" />
-                <div className="absolute inset-0 rounded-[2.6rem] bg-[radial-gradient(circle_at_center,rgba(11,26,36,0.18),transparent_54%)]" />
-
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative h-[440px] w-[440px] rounded-full border border-[#0B1A24]/8">
-                    <div className="absolute inset-5 rounded-full border border-[#0B1A24]/8" />
-                    <div className="absolute inset-11 rounded-full border border-[#0B1A24]/8" />
-                    <div className="absolute inset-0 animate-[spin_24s_linear_infinite] rounded-full border-[1.5px] border-transparent border-t-[#0B1A24]/24 border-r-[#0B1A24]/10" />
-                    <div className="absolute inset-8 animate-[spin_18s_linear_infinite_reverse] rounded-full border-[1.5px] border-transparent border-l-[#0B1A24]/18 border-b-[#0B1A24]/10" />
-                    <div className="absolute inset-[-20px] animate-[spin_38s_linear_infinite] rounded-full border border-transparent border-t-[#0B1A24]/10" />
-                  </div>
-                </div>
-
-                <div className="relative z-10 flex flex-col items-center justify-center text-center">
-                  <div className="rounded-[2rem] border border-[#0B1A24]/8 bg-white/55 p-5 shadow-[0_20px_50px_rgba(11,26,36,0.10)] backdrop-blur">
-                    <img src={logoSrc} alt="Darkvoid" className="w-[78%] max-w-[420px] drop-shadow-[0_22px_40px_rgba(11,26,36,0.14)]" />
-                  </div>
-                  <p className="mt-8 max-w-md text-sm leading-7 tracking-[0.12em] text-[#0B1A24]/58">
-                    A platform for those who value depth, precision, originality, and the disciplined transformation of chaos into clarity.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="about" className="py-24">
-          <div className="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-[0.92fr_1.08fr]">
-            <div className="rounded-[2rem] border border-black/5 bg-[#0B1A24] p-10 text-white shadow-[0_24px_70px_rgba(11,26,36,0.14)]">
-              <div className="text-xs uppercase tracking-[0.35em] text-white/45">About Darkvoid</div>
-              <h2 className="mt-5 text-3xl font-semibold leading-tight md:text-4xl">
-                Darkvoid was created to give serious ideas a serious home — one that feels rigorous, original, and worthy of the complexity it confronts.
-              </h2>
-            </div>
-
-            <div className="rounded-[2rem] border border-black/5 bg-white/78 p-10 shadow-sm backdrop-blur">
-              <p className="text-base leading-8 text-[#0B1A24]/74 md:text-lg">
-                Darkvoid operates at the intersection of research, systems economics, policy architecture, social innovation, and strategic thinking. It examines how economic structures, institutional dynamics, digital systems, and community realities interact — then develops clearer ways to interpret and respond to them.
-              </p>
-              <p className="mt-6 text-base leading-8 text-[#0B1A24]/74 md:text-lg">
-                Its purpose is not simply to observe complexity, but to organise it, refine it, and present it in a form that can guide thought, influence decisions, and support more meaningful action.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="research" className="py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div>
-                <div className="text-xs uppercase tracking-[0.35em] text-[#0B1A24]/55">Research Areas</div>
-                <h2 className="mt-4 text-4xl font-semibold md:text-5xl">Research that enters systems deeply enough to explain what others leave vague.</h2>
-              </div>
-              <div className="max-w-xl text-base leading-7 text-[#0B1A24]/65">
-                Darkvoid combines analytical depth with structural clarity, creating a space where difficult subjects feel more rigorous, more coherent, and more useful.
-              </div>
-            </div>
-
-            <div className="mt-14 grid gap-7 lg:grid-cols-3">
-              {research.map((card, index) => (
-                <div key={card.title} className="group relative overflow-hidden rounded-[2rem] border border-black/5 bg-white/82 p-8 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(11,26,36,0.12)]">
-                  <div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-[#0B1A24]/[0.05] blur-2xl transition group-hover:bg-[#0B1A24]/[0.09]" />
-                  <div className="text-xs uppercase tracking-[0.35em] text-[#0B1A24]/40">0{index + 1}</div>
-                  <h3 className="mt-5 text-2xl font-semibold">{card.title}</h3>
-                  <p className="mt-4 leading-7 text-[#0B1A24]/70">{card.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" className="relative overflow-hidden py-24">
-          <div className="absolute inset-0 bg-[#0B1A24]" />
-          <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(#ffffff_1px,transparent_1px),linear-gradient(90deg,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
-          <div className="relative mx-auto max-w-7xl px-6 text-white">
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div>
-                <div className="text-xs uppercase tracking-[0.35em] text-white/45">Current Work</div>
-                <h2 className="mt-4 text-4xl font-semibold md:text-5xl">Projects ordered by real policy relevance, observed system pressure, and then Darkvoid’s wider conceptual reach.</h2>
-              </div>
-              <div className="max-w-xl text-base leading-7 text-white/62">
-                The project layer presents Darkvoid’s work in its true order: first the projects rooted most directly in active system pressure and policy relevance, then the broader frameworks and conceptual models that extend the platform’s scope.
-              </div>
-            </div>
-
-            <div className="mt-14 grid gap-7 md:grid-cols-2 xl:grid-cols-3">
-              {projects.map((card, index) => (
-                <div key={card.title} className="rounded-[2rem] border border-white/10 bg-white/6 p-8 backdrop-blur-xl shadow-[0_18px_50px_rgba(0,0,0,0.22)] transition hover:bg-white/10">
-                  <div className="text-xs uppercase tracking-[0.35em] text-white/38">0{index + 1}</div>
-                  <h3 className="mt-5 text-2xl font-semibold">{card.title}</h3>
-                  <p className="mt-4 leading-7 text-white/68">{card.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="platform" className="py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div>
-                <div className="text-xs uppercase tracking-[0.35em] text-[#0B1A24]/55">Platform Structure</div>
-                <h2 className="mt-4 text-4xl font-semibold md:text-5xl">Different parts of Darkvoid can carry different levels of gravity.</h2>
-              </div>
-              <div className="max-w-2xl text-base leading-7 text-[#0B1A24]/65">
-                Darkvoid should not feel flat. Research, projects, and advisory can each hold their own atmosphere while remaining part of one coherent system — serious, cinematic, and unmistakably part of the same intellectual platform.
-              </div>
-            </div>
-
-            <div className="mt-14 grid gap-7 md:grid-cols-2 xl:grid-cols-4">
-              {branches.map((card) => (
-                <div key={card.title} className="rounded-[2rem] border border-black/5 bg-[#0B1A24] p-8 text-white shadow-[0_18px_60px_rgba(11,26,36,0.14)]">
-                  <div className="text-sm font-semibold tracking-[0.08em]">{card.title}</div>
-                  <div className="mt-4 text-sm leading-7 text-white/70">{card.text}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="py-24">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="rounded-[2.5rem] border border-black/5 bg-white/82 p-10 text-center shadow-[0_24px_70px_rgba(11,26,36,0.08)] backdrop-blur xl:p-14">
-              <div className="text-xs uppercase tracking-[0.35em] text-[#0B1A24]/50">Contact</div>
-              <h2 className="mt-5 text-4xl font-semibold md:text-5xl">
-                Open to serious conversations across research, projects, advisory, and long-term collaboration.
-              </h2>
-              <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#0B1A24]/68">
-                Darkvoid welcomes enquiries from researchers, institutions, founders, organisations, and communities interested in building work that is both intellectually serious and publicly meaningful.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-                <a href="mailto:hello@darkvoid.ie" className="rounded-2xl bg-[#0B1A24] px-8 py-4 text-sm font-medium tracking-[0.14em] text-white shadow-[0_18px_50px_rgba(11,26,36,0.15)] transition hover:-translate-y-0.5">
-                  hello@darkvoid.ie
-                </a>
-                <div className="rounded-2xl border border-[#0B1A24]/12 bg-[#ECECE7] px-8 py-4 text-sm tracking-[0.14em] text-[#0B1A24]/58">
-                  darkvoid.ie
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="border-t border-black/5 bg-white/60 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-8 text-sm text-[#0B1A24]/58 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3">
-            <img src={logoSrc} alt="Darkvoid mark" className="h-8 w-auto" />
-            <span>DARKVOID — Where Clarity Begins in Chaos</span>
-          </div>
-          <div>Research • Projects • Advisory • Systems Thinking</div>
-        </div>
-      </footer>
-    </div>
-  );
+body{
+margin:0;
+font-family:Inter, sans-serif;
+background:#ECECE7;
+color:#0B1A24;
 }
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+font-size:12px;
+letter-spacing:0.2em;
+color:#0B1A24;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:60px;
+min-height:80vh;
+}
+
+h1{
+font-size:56px;
+line-height:1.1;
+margin:20px 0;
+}
+
+p{
+line-height:1.8;
+color:#0B1A24aa;
+}
+
+.buttons a{
+display:inline-block;
+margin-right:15px;
+margin-top:20px;
+padding:14px 24px;
+border-radius:10px;
+text-decoration:none;
+font-size:12px;
+letter-spacing:0.15em;
+}
+
+.primary{
+background:#0B1A24;
+color:white;
+}
+
+.secondary{
+border:1px solid #0B1A24;
+color:#0B1A24;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:16px;
+border:1px solid rgba(0,0,0,0.05);
+}
+
+.logoBox{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.logoBox img{
+max-width:360px;
+}
+
+.section{
+padding:80px 0;
+}
+
+.section.dark{
+background:#0B1A24;
+color:white;
+}
+
+.section.dark p{
+color:#ffffffaa;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:40px;
+}
+
+.project{
+background:white;
+color:#0B1A24;
+padding:25px;
+border-radius:16px;
+}
+
+.section.dark .project{
+background:rgba(255,255,255,0.08);
+color:white;
+}
+
+footer{
+border-top:1px solid rgba(0,0,0,0.05);
+padding:30px;
+text-align:center;
+font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="container">
+
+<img src="logo.png" height="40">
+
+<nav>
+<a href="#about">ABOUT</a>
+<a href="#research">RESEARCH</a>
+<a href="#projects">PROJECTS</a>
+<a href="#platform">PLATFORM</a>
+<a href="#contact">CONTACT</a>
+</nav>
+
+</header>
+
+<section class="container hero">
+
+<div>
+
+<div style="font-size:11px;letter-spacing:0.3em;">WHERE CLARITY BEGINS IN CHAOS</div>
+
+<h1>
+Darkvoid is a premium research and strategic platform built to turn complexity into structure, authority, and meaningful public value.
+</h1>
+
+<p>
+Darkvoid brings together research, policy thinking, live projects, and advisory into one coherent architecture — designed to confront difficult systems seriously, refine them with precision, and translate them into sharper frameworks, stronger ideas, and more credible action.
+</p>
+
+<div class="buttons">
+<a class="primary" href="#projects">EXPLORE THE WORK</a>
+<a class="secondary" href="#platform">VIEW PLATFORM</a>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<b>Research</b>
+<p>Original frameworks, policy notes, systems analysis, and intellectual depth.</p>
+</div>
+
+<div class="card">
+<b>Projects</b>
+<p>A3M Pipeline, Health Access Systems, Irish Farmers Policy, One Card, Criminomics, Community Fund, and Kerala Model 2.0.</p>
+</div>
+
+<div class="card">
+<b>Advisory</b>
+<p>Strategic interpretation, institutional clarity, and premium analytical support.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="logoBox">
+<img src="logo.png">
+</div>
+
+</section>
+
+<section id="about" class="section container">
+
+<h2>About Darkvoid</h2>
+
+<p>
+Darkvoid was created to give serious ideas a serious home — one that feels rigorous, original, and worthy of the complexity it confronts.
+</p>
+
+<p>
+Darkvoid operates at the intersection of research, systems economics, policy architecture, social innovation, and strategic thinking. It examines how economic structures, institutional dynamics, digital systems, and community realities interact — then develops clearer ways to interpret and respond to them.
+</p>
+
+</section>
+
+<section id="research" class="section container">
+
+<h2>Research Areas</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Behavioural Systems Economics</h3>
+<p>Examining how institutional behaviour, structural incentives, and systemic pressures interact across economic environments.</p>
+</div>
+
+<div class="card">
+<h3>Institutional Design</h3>
+<p>Exploring how governance structures and policies can be designed with clarity and long-term public value.</p>
+</div>
+
+<div class="card">
+<h3>Access & System Failure</h3>
+<p>Studying frictions and exclusions shaping access across services, institutions, and social systems.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects" class="section dark">
+
+<div class="container">
+
+<h2>Current Work</h2>
+
+<p>Projects ordered by real policy relevance and system pressure.</p>
+
+<div class="grid">
+
+<div class="project">
+<h3>A3M Pipeline</h3>
+<p>Algorithmic escalation, access failure, payment enablement and systemic harm pathways.</p>
+</div>
+
+<div class="project">
+<h3>Health Access Systems</h3>
+<p>Research on structural barriers and healthcare access realities.</p>
+</div>
+
+<div class="project">
+<h3>Irish Farmers Policy</h3>
+<p>Policy work examining bargaining power and economic fairness in agriculture.</p>
+</div>
+
+<div class="project">
+<h3>One Card</h3>
+<p>A systems concept exploring simplified civic and service access architecture.</p>
+</div>
+
+<div class="project">
+<h3>Criminomics</h3>
+<p>An emerging framework linking illicit markets, economics and system vulnerability.</p>
+</div>
+
+<div class="project">
+<h3>Community Fund</h3>
+<p>A distributed micro-contribution architecture for collective social capacity.</p>
+</div>
+
+<div class="project">
+<h3>Kerala Model 2.0</h3>
+<p>A long-range social and economic framework exploring participation and resilience.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="platform" class="section container">
+
+<h2>Platform Structure</h2>
+
+<p>
+Different parts of Darkvoid carry different levels of gravity — research, projects and advisory each holding their own atmosphere while remaining part of one coherent system.
+</p>
+
+</section>
+
+<section id="contact" class="section container">
+
+<h2>Contact</h2>
+
+<p>
+Open to serious conversations across research, projects, advisory, and long-term collaboration.
+</p>
+
+<p style="margin-top:30px;">
+<b>hello@darkvoid.ie</b><br>
+darkvoid.ie
+</p>
+
+</section>
+
+<footer>
+
+DARKVOID — Where Clarity Begins in Chaos  
+<br><br>
+Research • Projects • Advisory • Systems Thinking
+
+</footer>
+
+</body>
+</html>

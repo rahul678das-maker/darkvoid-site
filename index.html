@@ -1,1206 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Darkvoid</title>
-  <meta name="description" content="Darkvoid — Where Clarity Begins in Chaos." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --bg:#f4f4f2;
-      --bg2:#e9ebe7;
-      --text:#0b1a24;
-      --muted:rgba(11,26,36,.70);
-      --muted2:rgba(11,26,36,.50);
-      --line:rgba(11,26,36,.08);
-      --white:#ffffff;
-      --dark:#0b1a24;
-      --shadow:0 20px 70px rgba(11,26,36,.08);
-      --shadow-strong:0 35px 120px rgba(11,26,36,.16);
-      --radius:30px;
-    }
+<title>Darkvoid</title>
+<meta name="description" content="Darkvoid — Where Clarity Begins in Chaos.">
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      overflow-x:hidden;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    .bg{
-      position:fixed;
-      inset:0;
-      z-index:-4;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(11,26,36,.08), transparent 28%),
-        radial-gradient(circle at 85% 18%, rgba(11,26,36,.08), transparent 20%),
-        radial-gradient(circle at 50% 100%, rgba(11,26,36,.05), transparent 30%),
-        linear-gradient(to bottom, var(--bg), var(--bg2));
-    }
+<link rel="stylesheet" href="style.css">
 
-    .grid{
-      position:fixed;
-      inset:0;
-      z-index:-3;
-      opacity:.05;
-      background-image:
-        linear-gradient(rgba(11,26,36,.7) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(11,26,36,.7) 1px, transparent 1px);
-      background-size:42px 42px;
-      mask-image:radial-gradient(circle at center, black 15%, transparent 85%);
-      pointer-events:none;
-    }
-
-    .ambient{
-      position:fixed;
-      inset:0;
-      z-index:-2;
-      pointer-events:none;
-      overflow:hidden;
-    }
-
-    .ambient::before,
-    .ambient::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      filter:blur(42px);
-      opacity:.28;
-      animation:floatSlow 16s ease-in-out infinite;
-    }
-
-    .ambient::before{
-      width:420px;
-      height:420px;
-      background:radial-gradient(circle, rgba(11,26,36,.12), transparent 70%);
-      top:10%;
-      left:-120px;
-    }
-
-    .ambient::after{
-      width:520px;
-      height:520px;
-      background:radial-gradient(circle, rgba(11,26,36,.10), transparent 72%);
-      right:-150px;
-      bottom:5%;
-      animation-delay:3s;
-    }
-
-    .container{
-      width:min(1220px, calc(100% - 40px));
-      margin-inline:auto;
-    }
-
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:60;
-      border-bottom:1px solid var(--line);
-      background:rgba(244,244,242,.72);
-      backdrop-filter:blur(16px);
-    }
-
-    .nav-inner{
-      min-height:84px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .brand img{
-      height:46px;
-      width:auto;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:28px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
-    .nav-links a{
-      font-size:12px;
-      letter-spacing:.24em;
-      color:var(--muted);
-      transition:.25s ease;
-      text-transform:uppercase;
-    }
-
-    .nav-links a:hover{ color:var(--text); }
-
-    .nav-actions{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-
-    .btn{
-      min-height:56px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:0 26px;
-      border-radius:18px;
-      font-size:13px;
-      font-weight:600;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      transition:.25s ease;
-      border:1px solid transparent;
-      cursor:pointer;
-    }
-
-    .btn:hover{ transform:translateY(-2px); }
-
-    .btn-dark{
-      background:var(--dark);
-      color:#fff;
-      box-shadow:0 18px 50px rgba(11,26,36,.16);
-    }
-
-    .btn-light{
-      background:rgba(255,255,255,.82);
-      color:var(--text);
-      border-color:var(--line);
-      box-shadow:0 12px 34px rgba(11,26,36,.05);
-    }
-
-    .btn-ghost{
-      background:rgba(255,255,255,.34);
-      color:var(--text);
-      border-color:var(--line);
-      backdrop-filter:blur(12px);
-    }
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-      padding:42px 0 56px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.14fr .86fr;
-      gap:28px;
-      align-items:center;
-      min-height:calc(100vh - 110px);
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:12px;
-      padding:12px 16px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.78);
-      box-shadow:0 8px 30px rgba(11,26,36,.04);
-    }
-
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:var(--dark);
-      box-shadow:0 0 0 10px rgba(11,26,36,.05);
-    }
-
-    .eyebrow span:last-child{
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.34em;
-      color:var(--muted);
-    }
-
-    h1{
-      margin:24px 0 0;
-      font-size:clamp(50px,5vw,78px);
-      line-height:1.02;
-      letter-spacing:-.055em;
-      max-width:980px;
-    }
-
-    .hero-text{
-      margin:22px 0 0;
-      max-width:850px;
-      font-size:clamp(18px,1.6vw,21px);
-      line-height:1.8;
-      color:var(--muted);
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-top:34px;
-    }
-
-    .hero-stats{
-      margin-top:36px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-      max-width:980px;
-    }
-
-    .stat{
-      padding:22px 22px 24px;
-      border-radius:22px;
-      background:rgba(255,255,255,.78);
-      border:1px solid var(--line);
-      backdrop-filter:blur(14px);
-      box-shadow:var(--shadow);
-      min-height:178px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-      transition:.25s ease;
-    }
-
-    .stat:hover{
-      transform:translateY(-4px);
-      box-shadow:0 18px 56px rgba(11,26,36,.12);
-    }
-
-    .stat .label{
-      display:block;
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.28em;
-      color:var(--muted2);
-    }
-
-    .stat .value{
-      display:block;
-      margin-top:12px;
-      font-size:14px;
-      line-height:1.72;
-      color:var(--muted);
-    }
-
-    .hero-visual{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-
-    .visual{
-      position:relative;
-      width:min(100%,560px);
-      aspect-ratio:1/1;
-      border-radius:38px;
-      border:1px solid rgba(255,255,255,.55);
-      background:linear-gradient(180deg, rgba(255,255,255,.44), rgba(255,255,255,.22));
-      backdrop-filter:blur(24px);
-      box-shadow:var(--shadow-strong);
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      isolation:isolate;
-      margin-inline:auto;
-    }
-
-    .visual::before{
-      content:"";
-      position:absolute;
-      inset:22px;
-      border:1px solid rgba(11,26,36,.06);
-      border-radius:28px;
-    }
-
-    .visual::after{
-      content:"";
-      position:absolute;
-      inset:-15%;
-      background:conic-gradient(from 120deg, rgba(11,26,36,.03), rgba(255,255,255,.18), rgba(11,26,36,.03));
-      animation:spin 18s linear infinite;
-      z-index:-1;
-    }
-
-    .halo{
-      position:absolute;
-      inset:18%;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(11,26,36,.14), transparent 62%);
-      filter:blur(22px);
-    }
-
-    .ring,
-    .ring-soft,
-    .orbit-line{
-      position:absolute;
-      border-radius:50%;
-      pointer-events:none;
-    }
-
-    .ring{ border:1.5px solid transparent; }
-
-    .ring1{
-      width:92%;
-      height:92%;
-      border-top-color:rgba(11,26,36,.18);
-      border-right-color:rgba(11,26,36,.08);
-      animation:spin 22s linear infinite;
-    }
-
-    .ring2{
-      width:76%;
-      height:76%;
-      border-left-color:rgba(11,26,36,.16);
-      border-bottom-color:rgba(11,26,36,.08);
-      animation:spinReverse 16s linear infinite;
-    }
-
-    .ring3{
-      width:58%;
-      height:58%;
-      border-top-color:rgba(11,26,36,.12);
-      border-right-color:rgba(11,26,36,.06);
-      animation:spin 10s linear infinite;
-    }
-
-    .ring-soft{
-      width:112%;
-      height:112%;
-      border:1px dashed rgba(11,26,36,.08);
-      animation:spinReverse 34s linear infinite;
-    }
-
-    .orbit-line{
-      width:124%;
-      height:68%;
-      border:1px solid rgba(11,26,36,.08);
-      transform:rotate(-18deg);
-    }
-
-    .orbit-line::before,
-    .orbit-line::after{
-      content:"";
-      position:absolute;
-      width:14px;
-      height:14px;
-      border-radius:50%;
-      background:var(--dark);
-      box-shadow:0 0 0 10px rgba(11,26,36,.05);
-    }
-
-    .orbit-line::before{
-      top:10%;
-      left:16%;
-      animation:orbitPulse 7s ease-in-out infinite;
-    }
-
-    .orbit-line::after{
-      bottom:14%;
-      right:18%;
-      animation:orbitPulse 7s ease-in-out infinite 1.2s;
-    }
-
-    .hero-signal{
-      position:absolute;
-      z-index:3;
-      backdrop-filter:blur(14px);
-      min-width:168px;
-      padding:14px 16px;
-      border-radius:20px;
-      background:rgba(255,255,255,.70);
-      border:1px solid rgba(11,26,36,.08);
-      box-shadow:var(--shadow);
-    }
-
-    .hero-signal small{
-      display:block;
-      font-size:10px;
-      letter-spacing:.26em;
-      text-transform:uppercase;
-      color:var(--muted2);
-      margin-bottom:6px;
-    }
-
-    .hero-signal strong{
-      display:block;
-      font-size:15px;
-      line-height:1.45;
-      color:var(--text);
-    }
-
-    .signal-1{ top:8%; left:3%; animation:floatCard 8s ease-in-out infinite; }
-    .signal-2{ top:18%; right:4%; animation:floatCard 9s ease-in-out infinite 1s; }
-    .signal-3{ bottom:10%; left:8%; animation:floatCard 10s ease-in-out infinite .6s; }
-
-    .logo-panel{
-      position:relative;
-      z-index:2;
-      width:min(70%,390px);
-      text-align:center;
-    }
-
-    .logo-wrap{
-      padding:18px;
-      border-radius:28px;
-      background:rgba(255,255,255,.50);
-      border:1px solid rgba(11,26,36,.06);
-      box-shadow:0 20px 50px rgba(11,26,36,.08);
-      backdrop-filter:blur(12px);
-    }
-
-    .hero-logo{
-      width:100%;
-      filter:drop-shadow(0 22px 40px rgba(11,26,36,.14));
-    }
-
-    .panel-text{
-      margin:18px auto 0;
-      max-width:340px;
-      font-size:13px;
-      line-height:1.8;
-      letter-spacing:.08em;
-      color:var(--muted2);
-    }
-
-    .section{
-      padding:78px 0;
-      position:relative;
-    }
-
-    .section-label{
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.34em;
-      color:var(--muted2);
-    }
-
-    .section-head{
-      max-width:920px;
-    }
-
-    .section-head h2{
-      margin:16px 0 0;
-      font-size:clamp(38px,4.7vw,58px);
-      line-height:1.08;
-      letter-spacing:-.04em;
-    }
-
-    .section-head p{
-      margin:18px 0 0;
-      max-width:760px;
-      font-size:18px;
-      line-height:1.82;
-      color:var(--muted);
-    }
-
-    .two-col{
-      display:grid;
-      grid-template-columns:.92fr 1.08fr;
-      gap:28px;
-    }
-
-    .panel{
-      border-radius:32px;
-      padding:42px;
-    }
-
-    .panel-dark{
-      background:var(--dark);
-      color:#fff;
-      box-shadow:var(--shadow-strong);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .panel-dark::before{
-      content:"";
-      position:absolute;
-      inset:auto -8% -40% auto;
-      width:300px;
-      height:300px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(255,255,255,.14), transparent 68%);
-      filter:blur(16px);
-    }
-
-    .panel-dark .section-label{
-      color:rgba(255,255,255,.45);
-    }
-
-    .panel-dark h2{
-      margin:18px 0 0;
-      font-size:clamp(30px,4vw,44px);
-      line-height:1.12;
-      position:relative;
-      z-index:1;
-    }
-
-    .panel-light{
-      background:rgba(255,255,255,.80);
-      border:1px solid var(--line);
-      backdrop-filter:blur(14px);
-      box-shadow:var(--shadow);
-    }
-
-    .panel-light p{
-      margin:0;
-      font-size:18px;
-      line-height:1.88;
-      color:var(--muted);
-    }
-
-    .panel-light p + p{ margin-top:22px; }
-
-    .cards,
-    .tiers{
-      margin-top:40px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .card,
-    .glass-card,
-    .platform-card,
-    .tier-card{
-      border-radius:30px;
-      padding:30px;
-      transition:transform .25s ease, box-shadow .25s ease;
-    }
-
-    .card:hover,
-    .glass-card:hover,
-    .platform-card:hover,
-    .tier-card:hover{
-      transform:translateY(-4px);
-    }
-
-    .card,
-    .platform-card,
-    .tier-card{
-      background:rgba(255,255,255,.84);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-    }
-
-    .card-number,
-    .tier-tag{
-      font-size:11px;
-      letter-spacing:.30em;
-      text-transform:uppercase;
-      color:var(--muted2);
-    }
-
-    .card h3,
-    .glass-card h3,
-    .platform-card h3,
-    .tier-card h3{
-      margin:16px 0 0;
-      font-size:28px;
-      line-height:1.2;
-    }
-
-    .card p,
-    .platform-card p,
-    .tier-card p{
-      margin:16px 0 0;
-      font-size:16px;
-      line-height:1.78;
-      color:var(--muted);
-    }
-
-    .meta-list,
-    .simple-list{
-      list-style:none;
-      padding:0;
-      margin:18px 0 0;
-      display:grid;
-      gap:10px;
-    }
-
-    .meta-list li,
-    .simple-list li{
-      padding-left:18px;
-      position:relative;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.72;
-    }
-
-    .meta-list li::before,
-    .simple-list li::before{
-      content:"";
-      position:absolute;
-      top:.7em;
-      left:0;
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:var(--dark);
-      opacity:.85;
-    }
-
-    .platform-grid{
-      margin-top:34px;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:20px;
-      align-items:stretch;
-    }
-
-    .platform-card{
-      background:var(--dark);
-      color:#fff;
-      box-shadow:0 18px 60px rgba(11,26,36,.14);
-    }
-
-    .platform-card p{
-      color:rgba(255,255,255,.72);
-      margin-top:14px;
-      font-size:15px;
-      line-height:1.8;
-    }
-
-    .dark-section{
-      position:relative;
-      color:#fff;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255,255,255,.05), transparent 25%),
-        linear-gradient(180deg, #08131b 0%, #0b1a24 100%);
-      overflow:hidden;
-    }
-
-    .dark-section::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      opacity:.08;
-      background-image:
-        linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px);
-      background-size:40px 40px;
-      pointer-events:none;
-    }
-
-    .dark-section::after{
-      content:"";
-      position:absolute;
-      width:700px;
-      height:700px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,.06);
-      top:-220px;
-      right:-180px;
-      animation:spin 40s linear infinite;
-    }
-
-    .dark-section .section-label{ color:rgba(255,255,255,.48); }
-    .dark-section .section-head p{ color:rgba(255,255,255,.68); }
-
-    .glass-card{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 18px 50px rgba(0,0,0,.22);
-      backdrop-filter:blur(16px);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .glass-card::after{
-      content:"";
-      position:absolute;
-      inset:auto -30px -30px auto;
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,.12);
-    }
-
-    .glass-card .card-number,
-    .glass-card p,
-    .glass-card li{
-      color:rgba(255,255,255,.70);
-    }
-
-    .glass-card h3{ color:#fff; }
-    .glass-card .meta-list li::before{ background:#fff; opacity:.85; }
-
-    .contact-panel{
-      text-align:center;
-      padding:44px 50px;
-      border-radius:36px;
-      background:rgba(255,255,255,.82);
-      border:1px solid var(--line);
-      backdrop-filter:blur(16px);
-      box-shadow:var(--shadow-strong);
-      position:relative;
-      overflow:hidden;
-      margin-top:0;
-    }
-
-    .contact-panel::before,
-    .contact-panel::after{
-      content:"";
-      position:absolute;
-      border-radius:50%;
-      border:1px solid rgba(11,26,36,.06);
-      pointer-events:none;
-    }
-
-    .contact-panel::before{
-      width:280px;
-      height:280px;
-      left:-80px;
-      bottom:-120px;
-    }
-
-    .contact-panel::after{
-      width:220px;
-      height:220px;
-      right:-60px;
-      top:-100px;
-    }
-
-    .contact-panel h2{
-      margin:16px auto 0;
-      max-width:1100px;
-      font-size:clamp(34px,4.8vw,58px);
-      line-height:1.08;
-      letter-spacing:-.04em;
-      position:relative;
-      z-index:1;
-    }
-
-    .contact-panel p{
-      margin:18px auto 0;
-      max-width:860px;
-      font-size:18px;
-      line-height:1.82;
-      color:var(--muted);
-      position:relative;
-      z-index:1;
-    }
-
-    .contact-actions{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:14px;
-      margin-top:30px;
-      position:relative;
-      z-index:1;
-    }
-
-    .pill{
-      min-height:56px;
-      display:inline-flex;
-      align-items:center;
-      padding:0 24px;
-      border-radius:18px;
-      background:rgba(11,26,36,.04);
-      border:1px solid var(--line);
-      font-size:13px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-
-    .footer{
-      border-top:1px solid var(--line);
-      background:rgba(255,255,255,.46);
-      backdrop-filter:blur(12px);
-    }
-
-    .footer-inner{
-      min-height:88px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      font-size:14px;
-      color:var(--muted);
-      flex-wrap:wrap;
-    }
-
-    .footer-brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .footer-brand img{
-      height:32px;
-      width:auto;
-    }
-
-    .reveal{
-      opacity:0;
-      transform:translateY(24px);
-      transition:opacity .8s ease, transform .8s ease;
-    }
-
-    .reveal.visible{
-      opacity:1;
-      transform:none;
-    }
-
-    @keyframes spin{
-      from{transform:rotate(0deg)}
-      to{transform:rotate(360deg)}
-    }
-
-    @keyframes spinReverse{
-      from{transform:rotate(360deg)}
-      to{transform:rotate(0deg)}
-    }
-
-    @keyframes floatCard{
-      0%,100%{ transform:translateY(0px); }
-      50%{ transform:translateY(-10px); }
-    }
-
-    @keyframes orbitPulse{
-      0%,100%{ transform:scale(1); opacity:1; }
-      50%{ transform:scale(1.25); opacity:.72; }
-    }
-
-    @keyframes floatSlow{
-      0%,100%{ transform:translateY(0px) translateX(0px); }
-      50%{ transform:translateY(-18px) translateX(8px); }
-    }
-
-    @media (max-width:1180px){
-      .hero-stats{ grid-template-columns:repeat(3,1fr); }
-      .cards,
-      .tiers{ grid-template-columns:1fr 1fr; }
-      .platform-grid{ grid-template-columns:1fr 1fr; }
-      h1{max-width:900px;}
-    }
-
-    @media (max-width:1080px){
-      .hero-grid,
-      .two-col{ grid-template-columns:1fr; }
-      .hero-visual{ order:0; }
-      .hero-stats{ grid-template-columns:1fr 1fr 1fr; }
-    }
-
-    @media (max-width:900px){
-      .hero-stats{ grid-template-columns:1fr; }
-      .cards,
-      .tiers,
-      .platform-grid{ grid-template-columns:1fr; }
-    }
-
-    @media (max-width:760px){
-      .nav-links{display:none}
-      .nav-actions{display:none}
-      .container{width:min(100% - 28px, 1220px)}
-      .section{padding:68px 0}
-      .panel,
-      .contact-panel,
-      .card,
-      .glass-card,
-      .platform-card,
-      .tier-card{padding:24px}
-      h1{font-size:clamp(42px,13vw,58px);letter-spacing:-.05em}
-      .hero-signal{display:none}
-      .visual{width:min(100%,440px)}
-      .stat{min-height:auto;}
-      .hero-grid{min-height:auto;}
-      .hero{padding:32px 0 48px;}
-    }
-  </style>
 </head>
+
 <body>
-  <div class="bg"></div>
-  <div class="grid"></div>
-  <div class="ambient"></div>
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a href="#home" class="brand">
-        <img src="logo.png" alt="Darkvoid logo">
-      </a>
+<div class="bg"></div>
+<div class="grid"></div>
+<div class="ambient"></div>
 
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#platform">Platform</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<header class="nav">
+<div class="container nav-inner">
 
-      <div class="nav-actions">
-        <a href="#projects" class="btn btn-ghost">Explore</a>
-        <a href="#contact" class="btn btn-dark">Enquire</a>
-      </div>
-    </div>
-  </header>
+<a href="#" class="brand">
+<img src="logo.png" alt="Darkvoid logo">
+</a>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <div class="eyebrow">
-            <span class="dot"></span>
-            <span>Where Clarity Begins in Chaos</span>
-          </div>
+<nav class="nav-links">
+<a href="#about">ABOUT</a>
+<a href="#research">RESEARCH</a>
+<a href="#projects">PROJECTS</a>
+<a href="#platform">PLATFORM</a>
+<a href="#contact">CONTACT</a>
+</nav>
 
-          <h1>Darkvoid is a premium research and strategic platform built to turn complexity into structure, authority, and meaningful public value.</h1>
+</div>
+</header>
 
-          <p class="hero-text">
-            Darkvoid brings together research, policy thinking, live projects, and advisory into one coherent architecture. It is designed to confront difficult systems seriously, refine them with precision, and translate them into sharper frameworks, stronger ideas, and more credible action.
-          </p>
+<main>
 
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-dark">Explore the Work</a>
-            <a href="#platform" class="btn btn-light">View the Platform</a>
-            <a href="#contact" class="btn btn-ghost">Connect</a>
-          </div>
+<section class="hero">
 
-          <div class="hero-stats reveal">
-            <div class="stat">
-              <span class="label">Research</span>
-              <span class="value">Original frameworks, policy notes, systems analysis, and intellectual depth.</span>
-            </div>
-            <div class="stat">
-              <span class="label">Projects</span>
-              <span class="value">A3M Pipeline, Health Access Systems, Irish Farmers Policy, One Card, Criminomics, Community Fund, and Kerala Model 2.0.</span>
-            </div>
-            <div class="stat">
-              <span class="label">Advisory</span>
-              <span class="value">Strategic interpretation, institutional clarity, and premium analytical support.</span>
-            </div>
-          </div>
-        </div>
+<div class="container hero-grid">
 
-        <div class="hero-visual reveal">
-          <div class="visual">
-            <div class="hero-signal signal-1">
-              <small>Active Framework</small>
-              <strong>A3M Pipeline</strong>
-            </div>
-            <div class="hero-signal signal-2">
-              <small>Policy Work</small>
-              <strong>Irish Farmers Policy</strong>
-            </div>
-            <div class="hero-signal signal-3">
-              <small>Systems Study</small>
-              <strong>Health Access</strong>
-            </div>
+<div class="hero-content reveal">
 
-            <div class="halo"></div>
-            <div class="ring-soft"></div>
-            <div class="orbit-line"></div>
-            <div class="ring ring1"></div>
-            <div class="ring ring2"></div>
-            <div class="ring ring3"></div>
+<div class="eyebrow">
+<span class="dot"></span>
+<span>Where Clarity Begins in Chaos</span>
+</div>
 
-            <div class="logo-panel">
-              <div class="logo-wrap">
-                <img src="logo.png" alt="Darkvoid" class="hero-logo">
-              </div>
-              <p class="panel-text">
-                A platform for those who value depth, precision, originality, and the disciplined transformation of chaos into clarity.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<h1>
+Darkvoid is a premium research and strategic platform built to turn complexity into structure, authority, and meaningful public value.
+</h1>
 
-    <section class="section" id="about">
-      <div class="container two-col">
-        <div class="panel panel-dark reveal">
-          <div class="section-label">About Darkvoid</div>
-          <h2>Darkvoid was created to give serious ideas a serious home — one that feels rigorous, original, and worthy of the complexity it confronts.</h2>
-        </div>
+<p class="hero-text">
+Darkvoid brings together research, policy thinking, live projects, and advisory into one coherent architecture — designed to confront difficult systems seriously, refine them with precision, and translate them into sharper frameworks, stronger ideas, and more credible action.
+</p>
 
-        <div class="panel panel-light reveal">
-          <p>
-            Darkvoid operates at the intersection of research, systems economics, policy architecture, social innovation, and strategic thinking. It examines how economic structures, institutional dynamics, digital systems, and community realities interact — then develops clearer ways to interpret and respond to them.
-          </p>
-          <p>
-            Its purpose is not simply to observe complexity, but to organise it, refine it, and present it in a form that can guide thought, influence decisions, and support more meaningful action.
-          </p>
-        </div>
-      </div>
-    </section>
+<div class="hero-actions">
+<a href="#projects" class="btn btn-dark">Explore the Work</a>
+<a href="#platform" class="btn btn-light">View the Platform</a>
+</div>
 
-    <section class="section" id="research">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">Research Areas</div>
-          <h2>Research that enters systems deeply enough to explain what others leave vague.</h2>
-          <p>
-            Darkvoid combines analytical depth with structural clarity, creating a space where difficult subjects feel more rigorous, more coherent, and more useful.
-          </p>
-        </div>
+<div class="hero-stats">
 
-        <div class="cards">
-          <div class="card reveal">
-            <div class="card-number">01</div>
-            <h3>Behavioural Systems Economics</h3>
-            <p>Examining how institutional behaviour, structural incentives, and systemic pressures interact across economic and public environments.</p>
-          </div>
+<div class="stat">
+<span class="label">Research</span>
+<span class="value">
+Original frameworks, policy notes, systems analysis, and intellectual depth.
+</span>
+</div>
 
-          <div class="card reveal">
-            <div class="card-number">02</div>
-            <h3>Institutional Design & Policy Architecture</h3>
-            <p>Exploring how policies, governance structures, and decision systems can be designed with greater clarity, coherence, and long-term public value.</p>
-          </div>
+<div class="stat">
+<span class="label">Projects</span>
+<span class="value">
+A3M Pipeline, Health Access Systems, Irish Farmers Policy, One Card, Criminomics, Community Fund, and Kerala Model 2.0.
+</span>
+</div>
 
-          <div class="card reveal">
-            <div class="card-number">03</div>
-            <h3>Access, Governance & System Failure</h3>
-            <p>Studying the frictions, exclusions, and structural blind spots that shape real-world access across services, payments, institutions, and social systems.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="stat">
+<span class="label">Advisory</span>
+<span class="value">
+Strategic interpretation, institutional clarity, and premium analytical support.
+</span>
+</div>
 
-    <section class="section dark-section" id="projects">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">Current Work</div>
-          <h2>Projects ordered by real policy relevance, observed system pressure, and then Darkvoid’s wider conceptual reach.</h2>
-          <p>
-            The project layer presents Darkvoid’s work in its true order: first the projects rooted most directly in active system pressure and policy relevance, then the broader frameworks and conceptual models that extend the platform’s scope.
-          </p>
-        </div>
+</div>
+</div>
 
-        <div class="cards">
-          <div class="glass-card reveal">
-            <div class="card-number">01</div>
-            <h3>A3M Pipeline</h3>
-            <p>A core Darkvoid framework examining how algorithmic escalation, access failure, payment enablement, and offline harm can interact across vulnerable systems.</p>
-          </div>
+<div class="hero-visual reveal">
 
-          <div class="glass-card reveal">
-            <div class="card-number">02</div>
-            <h3>Health Access Systems</h3>
-            <p>A policy-grounded project focused on structural barriers, waiting-time pressure, service reach, and the lived realities of healthcare access.</p>
-          </div>
+<div class="visual">
 
-          <div class="glass-card reveal">
-            <div class="card-number">03</div>
-            <h3>Irish Farmers Policy</h3>
-            <p>A structural policy project exploring fairness, transparency, bargaining power, and the economic pressures shaping Irish farming outcomes.</p>
-          </div>
+<div class="halo"></div>
 
-          <div class="glass-card reveal">
-            <div class="card-number">04</div>
-            <h3>One Card</h3>
-            <p>A systems-focused concept exploring access design, service usability, and the wider implications of streamlined public and civic interaction models.</p>
-          </div>
+<div class="ring ring1"></div>
+<div class="ring ring2"></div>
+<div class="ring ring3"></div>
+<div class="ring-soft"></div>
 
-          <div class="glass-card reveal">
-            <div class="card-number">05</div>
-            <h3>Criminomics</h3>
-            <p>An emerging intellectual field linking illicit markets, economic incentives, systemic vulnerability, and institutional response.</p>
-          </div>
+<div class="orbit-line"></div>
 
-          <div class="glass-card reveal">
-            <div class="card-number">06</div>
-            <h3>Community Fund</h3>
-            <p>A contribution-based social architecture showing how distributed small-scale participation can build collective capacity and local impact.</p>
-          </div>
+<div class="logo-panel">
 
-          <div class="glass-card reveal">
-            <div class="card-number">07</div>
-            <h3>Kerala Model 2.0</h3>
-            <p>A long-range social and economic framework exploring participation, resilience, contribution, and broader public-value design.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="logo-wrap">
+<img src="logo.png" class="hero-logo" alt="Darkvoid">
+</div>
 
-    <section class="section" id="platform">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">Platform Structure</div>
-          <h2>Different parts of Darkvoid can carry different levels of gravity.</h2>
-          <p>
-            Darkvoid should not feel flat. Research, projects, and advisory can each hold their own atmosphere while remaining part of one coherent system — serious, cinematic, and unmistakably part of the same intellectual platform.
-          </p>
-        </div>
+<p class="panel-text">
+A platform for those who value depth, precision, originality, and the disciplined transformation of chaos into clarity.
+</p>
 
-        <div class="platform-grid">
-          <div class="platform-card reveal">
-            <h3>Darkvoid Research</h3>
-            <p>Original frameworks, systems papers, policy notes, and analytical work shaped by intellectual depth and structural seriousness.</p>
-          </div>
+</div>
 
-          <div class="platform-card reveal">
-            <h3>Darkvoid Projects</h3>
-            <p>Live initiatives, policy-grounded work, and conceptual frameworks presented in the true order of Darkvoid’s development.</p>
-          </div>
+</div>
 
-          <div class="platform-card reveal">
-            <h3>Darkvoid Advisory</h3>
-            <p>Strategic interpretation, systems diagnosis, policy insight, and premium analytical support for serious collaborators.</p>
-          </div>
+</div>
 
-          <div class="platform-card reveal">
-            <h3>Darkvoid Platform</h3>
-            <p>A coherent architecture where research, projects, and advisory remain distinct in tone while belonging to one unified Darkvoid identity.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact-panel reveal">
-          <div class="section-label">Contact</div>
-          <h2>Open to serious conversations across research, projects, advisory, and long-term collaboration.</h2>
-          <p>
-            Darkvoid welcomes enquiries from researchers, institutions, founders, organisations, and communities interested in building work that is both intellectually serious and publicly meaningful.
-          </p>
+</section>
 
-          <div class="contact-actions">
-            <a href="mailto:hello@darkvoid.ie" class="btn btn-dark">hello@darkvoid.ie</a>
-            <span class="pill">darkvoid.ie</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<section class="section" id="about">
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="logo.png" alt="Darkvoid mark">
-        <span>DARKVOID — Where Clarity Begins in Chaos</span>
-      </div>
-      <div>Research • Projects • Advisory • Systems Thinking</div>
-    </div>
-  </footer>
+<div class="container two-col">
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.12 });
+<div class="panel panel-dark reveal">
 
-      reveals.forEach((item) => observer.observe(item));
-    });
-  </script>
+<div class="section-label">About Darkvoid</div>
+
+<h2>
+Darkvoid was created to give serious ideas a serious home — one that feels rigorous, original, and worthy of the complexity it confronts.
+</h2>
+
+</div>
+
+<div class="panel panel-light reveal">
+
+<p>
+Darkvoid operates at the intersection of research, systems economics, policy architecture, social innovation, and strategic thinking.
+</p>
+
+<p>
+It examines how economic structures, institutional dynamics, digital systems, and community realities interact — then develops clearer ways to interpret and respond to them.
+</p>
+
+<p>
+Its purpose is not simply to observe complexity, but to organise it, refine it, and present it in a form that can guide thought, influence decisions, and support more meaningful action.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="research">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="section-label">Research Areas</div>
+
+<h2>
+Research that enters systems deeply enough to explain what others leave vague.
+</h2>
+
+<p>
+Darkvoid combines analytical depth with structural clarity, creating a space where difficult subjects feel more rigorous, coherent, and useful.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card reveal">
+<div class="card-number">01</div>
+<h3>Behavioural Systems Economics</h3>
+<p>
+Examining how institutional behaviour, structural incentives, and systemic pressures interact across economic and public environments.
+</p>
+</div>
+
+<div class="card reveal">
+<div class="card-number">02</div>
+<h3>Institutional Design & Policy Architecture</h3>
+<p>
+Exploring how policies, governance structures, and decision systems can be designed with greater clarity and long-term public value.
+</p>
+</div>
+
+<div class="card reveal">
+<div class="card-number">03</div>
+<h3>Access, Governance & System Failure</h3>
+<p>
+Studying the frictions, exclusions, and structural blind spots shaping real-world access across services and institutions.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section dark-section" id="projects">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="section-label">Current Work</div>
+
+<h2>
+Projects ordered by real policy relevance and systemic pressure.
+</h2>
+
+<p>
+The project layer presents Darkvoid’s work in its true order: first the projects rooted most directly in active system pressure and policy relevance, followed by broader conceptual frameworks.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="glass-card reveal">
+<div class="card-number">01</div>
+<h3>A³M Pipeline</h3>
+<p>Algorithmic escalation, access failure, payment enablement, and offline harm.</p>
+</div>
+
+<div class="glass-card reveal">
+<div class="card-number">02</div>
+<h3>Health Access Systems</h3>
+<p>Structural barriers and real-world healthcare access pressures.</p>
+</div>
+
+<div class="glass-card reveal">
+<div class="card-number">03</div>
+<h3>Irish Farmers Policy</h3>
+<p>Economic fairness and bargaining power in Irish agriculture.</p>
+</div>
+
+<div class="glass-card reveal">
+<div class="card-number">04</div>
+<h3>One Card</h3>
+<p>A streamlined system for public and civic service interaction.</p>
+</div>
+
+<div class="glass-card reveal">
+<div class="card-number">05</div>
+<h3>Criminomics</h3>
+<p>An emerging intellectual field linking illicit markets and systemic incentives.</p>
+</div>
+
+<div class="glass-card reveal">
+<div class="card-number">06</div>
+<h3>Community Fund</h3>
+<p>A distributed contribution model for collective capacity building.</p>
+</div>
+
+<div class="glass-card reveal">
+<div class="card-number">07</div>
+<h3>Kerala Model 2.0</h3>
+<p>A long-range social and economic participation framework.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="contact">
+
+<div class="container">
+
+<div class="contact-panel reveal">
+
+<div class="section-label">Contact</div>
+
+<h2>
+Open to serious conversations across research, projects, advisory, and long-term collaboration.
+</h2>
+
+<p>
+Darkvoid welcomes enquiries from researchers, institutions, founders, organisations, and communities interested in building work that is both intellectually serious and publicly meaningful.
+</p>
+
+<div class="contact-actions">
+<a href="mailto:hello@darkvoid.ie" class="btn btn-dark">hello@darkvoid.ie</a>
+<div class="pill">darkvoid.ie</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+<div class="container footer-inner">
+
+<div class="footer-brand">
+<img src="logo.png" alt="Darkvoid mark">
+<span>DARKVOID — Where Clarity Begins in Chaos</span>
+</div>
+
+<div>
+Research • Projects • Advisory • Systems Thinking
+</div>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>

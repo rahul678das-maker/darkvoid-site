@@ -157,8 +157,8 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:60px;
+      grid-template-columns:1.02fr .98fr;
+      gap:34px;
       align-items:center;
     }
 
@@ -283,7 +283,7 @@
 
     .visual{
       position:relative;
-      width:min(100%,580px);
+      width:min(100%,620px);
       aspect-ratio:1/1;
       border-radius:38px;
       border:1px solid rgba(255,255,255,.55);
@@ -392,7 +392,7 @@
     .logo-panel{
       position:relative;
       z-index:2;
-      width:min(78%,430px);
+      width:min(64%,360px);
       text-align:center;
     }
 
@@ -411,10 +411,10 @@
     }
 
     .panel-text{
-      margin:22px auto 0;
-      max-width:370px;
-      font-size:14px;
-      line-height:1.9;
+      margin:18px auto 0;
+      max-width:340px;
+      font-size:13px;
+      line-height:1.8;
       letter-spacing:.08em;
       color:var(--muted2);
     }
@@ -452,7 +452,7 @@
     .fc2{ top:16%; right:3%; animation:floatCard 9s ease-in-out infinite 1s; }
     .fc3{ bottom:10%; left:4%; animation:floatCard 10s ease-in-out infinite .6s; }
 
-    .section{ padding:110px 0; position:relative; }
+    .section{ padding:88px 0; position:relative; }
 
     .section-label{
       font-size:11px;
@@ -614,7 +614,7 @@
     }
 
     .site-map-grid{
-      margin-top:46px;
+      margin-top:34px;
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:20px;
@@ -855,6 +855,60 @@
       width:auto;
     }
 
+    .hero-signal,
+    .hero-orbit-label{
+      position:absolute;
+      z-index:3;
+      backdrop-filter:blur(14px);
+    }
+
+    .hero-signal{
+      min-width:168px;
+      padding:14px 16px;
+      border-radius:20px;
+      background:rgba(255,255,255,.68);
+      border:1px solid rgba(11,26,36,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-signal small{
+      display:block;
+      font-size:10px;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+      color:var(--muted2);
+      margin-bottom:6px;
+    }
+
+    .hero-signal strong{
+      display:block;
+      font-size:15px;
+      line-height:1.45;
+      color:var(--text);
+    }
+
+    .signal-1{ top:9%; left:4%; animation:floatCard 8s ease-in-out infinite; }
+    .signal-2{ top:18%; right:4%; animation:floatCard 9s ease-in-out infinite 1s; }
+    .signal-3{ bottom:11%; left:8%; animation:floatCard 10s ease-in-out infinite .6s; }
+
+    .hero-orbit-label{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.50);
+      border:1px solid rgba(11,26,36,.08);
+      box-shadow:0 10px 28px rgba(11,26,36,.05);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .orbit-label-1{ top:7%; left:39%; }
+    .orbit-label-2{ top:31%; right:2%; }
+    .orbit-label-3{ bottom:17%; right:7%; }
+    .orbit-label-4{ bottom:5%; left:34%; }
+    .orbit-label-5{ top:34%; left:2%; }
+
     .reveal{
       opacity:0;
       transform:translateY(24px);
@@ -909,11 +963,12 @@
       .nav-links{display:none}
       .nav-actions{display:none}
       .container{width:min(100% - 28px, 1180px)}
-      .section{padding:84px 0}
+      .section{padding:72px 0}
       .panel,.contact-panel,.card,.glass-card,.path-card,.tier-card{padding:24px}
       h1{letter-spacing:-.05em}
       .hero-stats{grid-template-columns:1fr}
-      .float-card{display:none}
+      .hero-signal,
+      .hero-orbit-label{display:none}
       .visual{width:min(100%,520px)}
     }
   </style>
@@ -953,10 +1008,10 @@
             <span>Where Clarity Begins in Chaos</span>
           </div>
 
-          <h1>Darkvoid is a premium research and strategic platform built to turn complexity into structure, intelligence, and meaningful public value.</h1>
+          <h1>Darkvoid is a premium research and strategic platform built to turn complexity into structure, authority, and meaningful public value.</h1>
 
           <p class="hero-text">
-            Darkvoid brings together research, education, policy thinking, live projects, and advisory into one coherent architecture. It exists to examine difficult systems with seriousness, refine them with clarity, and translate them into sharper frameworks, stronger ideas, and more credible action.
+            Darkvoid brings together research, policy thinking, live projects, and advisory into one coherent architecture. It is designed to confront difficult systems seriously, refine them with precision, and translate them into sharper frameworks, stronger ideas, and more credible action.
           </p>
 
           <div class="hero-actions">
@@ -987,6 +1042,23 @@
 
         <div class="hero-visual reveal">
           <div class="visual">
+            <div class="hero-signal signal-1">
+              <small>Active Framework</small>
+              <strong>A3M Pipeline</strong>
+            </div>
+            <div class="hero-signal signal-2">
+              <small>Policy Work</small>
+              <strong>Irish Farmers Policy</strong>
+            </div>
+            <div class="hero-signal signal-3">
+              <small>Systems Study</small>
+              <strong>Health Access</strong>
+            </div>
+            <div class="hero-orbit-label orbit-label-1">Research</div>
+            <div class="hero-orbit-label orbit-label-2">Projects</div>
+            <div class="hero-orbit-label orbit-label-3">Policy</div>
+            <div class="hero-orbit-label orbit-label-4">Systems</div>
+            <div class="hero-orbit-label orbit-label-5">Advisory</div>
             <div class="halo"></div>
             <div class="ring-soft"></div>
             <div class="orbit-line"></div>

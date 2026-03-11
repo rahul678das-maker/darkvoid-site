@@ -522,10 +522,13 @@ h1{
 }
 
 .hero-3d-logo{
-  width:min(100%,420px);
-  transform-origin:center center;
-  animation:logo3dRotate 14s linear infinite;
-  filter:drop-shadow(0 24px 48px rgba(11,26,36,.16));
+  width:min(100%,280px);
+  display:block;
+  margin:auto;
+  transform-origin:center;
+  transform-style:preserve-3d;
+  animation:darkvoidSpin 24s linear infinite;
+  filter:drop-shadow(0 26px 50px rgba(11,26,36,.18));
 }
 
 .panel-text{
@@ -957,12 +960,9 @@ h1{
   50%{transform:translate3d(1.2%, -1.2%, 0) scale(1.03)}
 }
 
-@keyframes logo3dRotate{
-  0%{transform:rotate(0deg) scale(1)}
-  25%{transform:rotate(4deg) scale(1.015)}
-  50%{transform:rotate(0deg) scale(1.03)}
-  75%{transform:rotate(-4deg) scale(1.015)}
-  100%{transform:rotate(0deg) scale(1)}
+@keyframes darkvoidSpin{
+  0%{transform:rotateY(0deg)}
+  100%{transform:rotateY(360deg)}
 }
 
 @media (max-width:1180px){
@@ -1019,27 +1019,5 @@ h1{
   .footer-links{
     justify-content:flex-start;
     gap:14px;
-  }
-}
-/* ===============================
-3D LOGO ROTATION (Darkvoid Symbol)
-=============================== */
-
-.hero-3d-logo{
-  width:260px;
-  display:block;
-  margin:auto;
-  transform-origin:center;
-  transform-style:preserve-3d;
-  animation:darkvoidSpin 24s linear infinite;
-  filter:drop-shadow(0 26px 50px rgba(11,26,36,.18));
-}
-
-@keyframes darkvoidSpin{
-  0%{
-    transform:rotateY(0deg);
-  }
-  100%{
-    transform:rotateY(360deg);
   }
 }

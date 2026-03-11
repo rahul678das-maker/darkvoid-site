@@ -1,36 +1,34 @@
-const navToggle = document.querySelector(".nav-toggle");
-const nav = document.querySelector(".nav");
+const menuToggle = document.querySelector(".menu-toggle");
+const mainNav = document.querySelector(".main-nav");
 
-if (navToggle && nav) {
-  navToggle.addEventListener("click", () => {
-    nav.classList.toggle("show");
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener("click", () => {
+    mainNav.classList.toggle("show");
   });
 
-  document.querySelectorAll(".nav a").forEach((link) => {
+  document.querySelectorAll(".main-nav a").forEach((link) => {
     link.addEventListener("click", () => {
-      nav.classList.remove("show");
+      mainNav.classList.remove("show");
     });
   });
 }
 
-// Subtle parallax for orb
-const orbShell = document.querySelector(".orb-shell");
+const chamber = document.querySelector(".void-chamber");
 
-window.addEventListener("mousemove", (e) => {
-  if (!orbShell) return;
+window.addEventListener("mousemove", (event) => {
+  if (!chamber) return;
 
-  const x = (window.innerWidth / 2 - e.clientX) / 45;
-  const y = (window.innerHeight / 2 - e.clientY) / 45;
+  const x = (window.innerWidth / 2 - event.clientX) / 55;
+  const y = (window.innerHeight / 2 - event.clientY) / 55;
 
-  orbShell.style.transform = `translate(${ -x }px, ${ -y }px)`;
+  chamber.style.transform = `translate(${-x}px, ${-y}px)`;
 });
 
-// Fade-in reveal on scroll
-const revealElements = document.querySelectorAll(
-  ".domain-card, .research-card, .philosophy-box, .vision-left, .vision-map-card, .final-cta"
+const revealItems = document.querySelectorAll(
+  ".essence-card, .domain-panel, .research-panel, .quote-box, .vision-copy, .vision-grid-card, .contact-section"
 );
 
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -39,14 +37,12 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  {
-    threshold: 0.12,
-  }
+  { threshold: 0.12 }
 );
 
-revealElements.forEach((el) => {
-  el.style.opacity = "0";
-  el.style.transform = "translateY(26px)";
-  el.style.transition = "opacity 0.9s ease, transform 0.9s ease";
-  observer.observe(el);
+revealItems.forEach((item) => {
+  item.style.opacity = "0";
+  item.style.transform = "translateY(24px)";
+  item.style.transition = "opacity 0.9s ease, transform 0.9s ease";
+  revealObserver.observe(item);
 });

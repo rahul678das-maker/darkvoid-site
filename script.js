@@ -13,4 +13,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reveals.forEach((item) => observer.observe(item));
 });
-console.log("Darkvoid site active");

@@ -1093,3 +1093,24 @@ h1{
     gap:14px;
   }
 }
+.hero-logo-3d{
+width:220px;
+animation:darkvoidSpin 14s linear infinite;
+transform-style:preserve-3d;
+}
+
+@keyframes darkvoidSpin{
+
+0%{
+transform:rotateY(0deg) rotateX(8deg);
+}
+
+50%{
+transform:rotateY(180deg) rotateX(-8deg);
+}
+
+100%{
+transform:rotateY(360deg) rotateX(8deg);
+}
+
+}

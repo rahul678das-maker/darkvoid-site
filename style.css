@@ -973,3 +973,31 @@ h1{
     gap:14px;
   }
 }
+.hero-logo-3d-cinematic{
+  width:min(100%,280px);
+  display:block;
+  margin:auto;
+  transform-origin:center center;
+  transform-style:preserve-3d;
+  animation:darkvoidSpinCinematic 14s ease-in-out infinite;
+  filter:drop-shadow(0 26px 50px rgba(11,26,36,.18));
+  will-change:transform;
+}
+
+@keyframes darkvoidSpinCinematic{
+  0%{
+    transform:perspective(1100px) rotateY(0deg) rotateX(8deg) scale(1);
+  }
+  25%{
+    transform:perspective(1100px) rotateY(90deg) rotateX(2deg) scale(1.02);
+  }
+  50%{
+    transform:perspective(1100px) rotateY(180deg) rotateX(-8deg) scale(1.03);
+  }
+  75%{
+    transform:perspective(1100px) rotateY(270deg) rotateX(-2deg) scale(1.02);
+  }
+  100%{
+    transform:perspective(1100px) rotateY(360deg) rotateX(8deg) scale(1);
+  }
+}

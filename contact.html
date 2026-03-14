@@ -80,21 +80,29 @@
 
           <div class="hero-actions">
             <a href="#contact-form" class="btn btn-dark">Open Contact Form</a>
-            <a href="#contact-direct" class="btn btn-light">Direct Contact</a>
+            <a href="mailto:hello.darkvoidbyrd@gmail.com" class="btn btn-light">Email Directly</a>
           </div>
 
           <div class="hero-stats">
             <div class="stat">
+              <span class="label">Research</span>
+              <span class="value">
+                Research discussion, policy-oriented enquiry, systems analysis, and analytical collaboration.
+              </span>
+            </div>
+
+            <div class="stat">
+              <span class="label">Projects</span>
+              <span class="value">
+                Selected work, public complexity, project-related dialogue, and institutional interest in current focus areas.
+              </span>
+            </div>
+
+            <div class="stat">
               <span class="label">Scope</span>
-              <span class="value">Research • Projects • Advisory</span>
-            </div>
-            <div class="stat">
-              <span class="label">Location</span>
-              <span class="value">Ireland • Global</span>
-            </div>
-            <div class="stat">
-              <span class="label">Approach</span>
-              <span class="value">Clear, serious, analytically grounded dialogue</span>
+              <span class="value">
+                Based in Ireland, open to serious communication with wider global relevance.
+              </span>
             </div>
           </div>
         </div>
@@ -110,10 +118,10 @@
 
             <div class="logo-panel">
               <div class="logo-wrap">
-                <img src="logo.png" class="hero-logo" alt="Contact Darkvoid">
+                <img src="logo.png" class="hero-logo" alt="Darkvoid Contact">
               </div>
               <p class="panel-text">
-                A direct route for serious communication around research, projects, institutional conversation, and selected collaboration.
+                Darkvoid values seriousness, clarity, and communication grounded in real intellectual and strategic purpose.
               </p>
             </div>
           </div>
@@ -121,41 +129,41 @@
       </div>
     </section>
 
-    <section class="section dark-section" id="contact-principles">
+    <section class="section" id="enquiry-areas">
       <div class="container">
         <div class="section-head reveal">
-          <div class="section-label">Contact Principles</div>
+          <div class="section-label">Enquiry Areas</div>
           <h2>
-            Communication should be thoughtful, specific, and aligned with meaningful work.
+            Different types of serious conversation can begin here.
           </h2>
 
           <p>
-            Darkvoid is open to serious enquiry. The platform is particularly interested in conversations that involve research, project development, institutional thinking, public-value questions, and analytically grounded collaboration.
+            Darkvoid’s contact layer is structured around the main forms of enquiry most aligned with the platform’s work and identity.
           </p>
         </div>
 
         <div class="cards">
-          <div class="glass-card reveal">
+          <div class="card reveal">
             <div class="card-number">01</div>
             <h3>Research Enquiries</h3>
             <p>
-              Conversations around research themes, analytical frameworks, emerging notes, and long-form publication are welcome.
+              For discussion relating to systems analysis, institutional structure, policy thinking, frameworks, long-form analytical work, or broader research-oriented dialogue.
             </p>
           </div>
 
-          <div class="glass-card reveal">
+          <div class="card reveal">
             <div class="card-number">02</div>
-            <h3>Project Dialogue</h3>
+            <h3>Project Enquiries</h3>
             <p>
-              Darkvoid is open to discussion around active concepts, project directions, public-value models, and systems-oriented development.
+              For conversations connected to Darkvoid’s selected work, including policy-grounded areas, systems concerns, and project-focused institutional interest.
             </p>
           </div>
 
-          <div class="glass-card reveal">
+          <div class="card reveal">
             <div class="card-number">03</div>
-            <h3>Institutional Relevance</h3>
+            <h3>Advisory Enquiries</h3>
             <p>
-              Enquiries connected to institutions, public systems, policy design, strategic thinking, and advisory pathways are especially welcome.
+              For strategic discussion, systems interpretation, policy-facing thought, analytical support, or intellectually serious collaboration.
             </p>
           </div>
         </div>
@@ -164,46 +172,46 @@
 
     <section class="section" id="contact-form">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="contact-form-panel reveal">
           <div class="section-label">Contact Form</div>
-          <h2>
-            Use the form below for direct enquiry.
-          </h2>
-
+          <h2>Send an enquiry to Darkvoid.</h2>
           <p>
-            For research, collaboration, project discussion, advisory questions, or serious platform-related communication, please use the form below.
+            Submit your message directly through the site. No email app required.
           </p>
-        </div>
 
-        <div class="contact-form-wrap reveal">
-          <form id="darkvoid-contact-form" class="darkvoid-form">
-            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-            <input type="hidden" name="subject" value="New Darkvoid Enquiry">
+          <form id="darkvoid-contact-form" class="contact-form">
+            <input type="hidden" name="access_key" value="b50354d9-6ae1-4e1f-a3cf-1eb3c166b39f">
+            <input type="hidden" name="subject" value="New Darkvoid enquiry from website">
             <input type="hidden" name="from_name" value="Darkvoid Website">
+            <input type="checkbox" name="botcheck" class="hidden-botcheck" tabindex="-1" autocomplete="off">
 
             <div class="form-grid">
-              <div class="form-group">
+              <div class="form-field">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
               </div>
 
-              <div class="form-group">
+              <div class="form-field">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your email address" required>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+              </div>
+
+              <div class="form-field">
+                <label for="phone">Phone / Organisation</label>
+                <input id="phone" name="phone_or_organisation" type="text" placeholder="Optional">
+              </div>
+
+              <div class="form-field form-field-full">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="8" placeholder="Write your message here..." required></textarea>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="topic">Topic</label>
-              <input type="text" id="topic" name="topic" placeholder="Research, project, advisory, collaboration, or other enquiry">
+            <div class="form-actions">
+              <button type="submit" class="btn btn-dark" id="submit-button">Send Enquiry</button>
+              <a href="mailto:hello.darkvoidbyrd@gmail.com" class="btn btn-light">Email Directly</a>
             </div>
 
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="7" placeholder="Write your message here..." required></textarea>
-            </div>
-
-            <button id="submit-button" type="submit" class="btn btn-dark">Send Enquiry</button>
             <p id="form-status" class="form-status" aria-live="polite"></p>
           </form>
         </div>

@@ -1,405 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A3M Pipeline | Darkvoid</title>
+  <meta name="description" content="A3M Pipeline — a Darkvoid framework mapping escalation from algorithmic exposure to offline harm through linked institutional and economic stages." />
 
-<title>A3M Pipeline | Darkvoid</title>
+  <meta property="og:title" content="A3M Pipeline | Darkvoid" />
+  <meta property="og:description" content="A Darkvoid framework mapping escalation from algorithmic exposure to offline harm through linked institutional and economic stages." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://darkvoid.ie/a3m-pipeline.html" />
+  <meta property="og:image" content="https://darkvoid.ie/logo.png" />
 
-<meta name="description" content="A3M Pipeline — A Darkvoid framework mapping escalation from algorithmic exposure to offline harm through linked institutional and economic stages.">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A3M Pipeline | Darkvoid" />
+  <meta name="twitter:description" content="A Darkvoid framework mapping escalation from algorithmic exposure to offline harm through linked institutional and economic stages." />
+  <meta name="twitter:image" content="https://darkvoid.ie/logo.png" />
 
-<link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    .project-hero-dark .visual{
+      background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
+      border-color:rgba(255,255,255,.18);
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    .project-dark{
+      position:relative;
+      color:#fff;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.05), transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.04), transparent 16%),
+        linear-gradient(180deg, #050d14 0%, #09141d 46%, #0b1a24 100%);
+      overflow:hidden;
+    }
 
-<link rel="stylesheet" href="style.css">
+    .project-dark::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:.08;
+      background-image:
+        linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px);
+      background-size:40px 40px;
+      pointer-events:none;
+    }
+
+    .project-dark .section-label,
+    .project-dark .section-head p,
+    .project-dark p{color:rgba(255,255,255,.72)}
+
+    .project-dark h1,
+    .project-dark h2,
+    .project-dark h3{color:#fff}
+
+    .a3m-grid{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .a3m-stage{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      padding:28px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 18px 50px rgba(0,0,0,.22);
+      backdrop-filter:blur(16px);
+      transition:transform .25s ease, background .25s ease;
+    }
+
+    .a3m-stage:hover{
+      transform:translateY(-4px);
+      background:rgba(255,255,255,.09);
+    }
+
+    .a3m-stage-number{
+      display:inline-flex;
+      width:44px;
+      height:44px;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:12px;
+      letter-spacing:.18em;
+      color:rgba(255,255,255,.7);
+      margin-bottom:18px;
+    }
+
+    .a3m-stage p{
+      color:rgba(255,255,255,.72);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .a3m-line{
+      position:relative;
+      margin-top:18px;
+      height:2px;
+      background:linear-gradient(90deg, rgba(255,255,255,.28), rgba(255,255,255,.05));
+      border-radius:999px;
+      overflow:hidden;
+    }
+
+    .a3m-line::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+      animation:a3mFlow 6s linear infinite;
+    }
+
+    .a3m-notes{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .a3m-note{
+      border-radius:28px;
+      padding:26px;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(11,26,36,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .a3m-note p{
+      margin:12px 0 0;
+      font-size:15px;
+      line-height:1.8;
+      color:var(--muted);
+    }
+
+    @keyframes a3mFlow{
+      0%{transform:translateX(-120%)}
+      100%{transform:translateX(120%)}
+    }
+
+    @media (max-width:1080px){
+      .a3m-grid,
+      .a3m-notes{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:760px){
+      .a3m-grid,
+      .a3m-notes{grid-template-columns:1fr}
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="bg"></div>
-<div class="grid"></div>
-<div class="ambient"></div>
-
-<div class="signal-bar">
-<div class="container signal-inner">
-
-<div class="signal-left">
-<span>Darkvoid</span>
-<span>Framework Research</span>
-</div>
-
-<div class="signal-right">
-<span>Ireland</span>
-<span>Global</span>
-</div>
-
-</div>
-</div>
-
-
-<header class="nav">
-<div class="container nav-inner">
-
-<a href="index.html" class="brand">
-<img src="logo.png" alt="Darkvoid logo">
-</a>
-
-<nav class="nav-links">
-<a href="index.html#about">About</a>
-<a href="platform.html">Platform</a>
-<a href="research.html">Research</a>
-<a href="projects.html" class="active">Projects</a>
-<a href="notes.html">Notes</a>
-<a href="publications.html">Publications</a>
-<a href="contact.html#contact-form">Contact</a>
-</nav>
-
-</div>
-</header>
-
-
-<main>
-
-
-<section class="hero">
-
-<div class="container hero-grid">
-
-<div class="hero-content reveal">
-
-<p class="hero-kicker">Darkvoid Framework</p>
-
-<div class="eyebrow">
-<span class="dot"></span>
-<span>A3M Pipeline</span>
-</div>
-
-<h1>
-Mapping escalation from algorithmic exposure to offline harm.
-</h1>
-
-<p class="hero-text">
-The A3M Pipeline is a Darkvoid analytical framework that traces how algorithmic environments, access failure, financial enablement, and institutional blind spots can interact to escalate risk across digital and physical systems.
-</p>
-
-<div class="hero-stats">
-
-<div class="stat">
-<span class="label">Framework Status</span>
-<span class="value">In Development</span>
-</div>
-
-<div class="stat">
-<span class="label">Domain</span>
-<span class="value">Digital systems • Policy • Governance</span>
-</div>
-
-<div class="stat">
-<span class="label">Purpose</span>
-<span class="value">Understanding escalation across systems</span>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="hero-visual reveal">
-
-<div class="visual">
-
-<div class="halo"></div>
-<div class="ring ring1"></div>
-<div class="ring ring2"></div>
-<div class="ring ring3"></div>
-
-<div class="logo-panel">
-
-<div class="logo-wrap">
-<img src="logo.png" class="hero-logo" alt="Darkvoid">
-</div>
-
-<p class="panel-text">
-Framework analysis connecting digital systems with institutional outcomes.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<div class="container two-col">
-
-<div class="panel panel-dark reveal">
-
-<div class="section-label">Framework Concept</div>
-
-<h2>
-Understanding escalation as a system rather than isolated events.
-</h2>
-
-</div>
-
-
-<div class="panel panel-light reveal">
-
-<p>
-The A3M Pipeline examines how algorithmic ranking systems, economic incentives, access failure, and institutional response gaps may interact to create escalating pathways of harm.
-</p>
-
-<p>
-Rather than treating individual incidents as isolated outcomes, the framework explores how these layers form an interconnected chain of escalation across digital environments, financial infrastructure, and real-world behaviour.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section dark-section">
-
-<div class="container">
-
-<div class="section-head reveal">
-
-<div class="section-label">Pipeline Structure</div>
-
-<h2>
-Four structural layers of escalation.
-</h2>
-
-<p>
-The A3M Pipeline maps escalation across four interconnected stages that influence how digital exposure can translate into offline impact.
-</p>
-
-</div>
-
-
-<div class="cards">
-
-<div class="glass-card reveal">
-<div class="card-number">01</div>
-<h3>Algorithmic Escalation</h3>
-<p>
-Recommendation systems, engagement ranking, and content amplification that can intensify exposure patterns.
-</p>
-</div>
-
-<div class="glass-card reveal">
-<div class="card-number">02</div>
-<h3>Access Failure</h3>
-<p>
-Institutional or service gaps that reduce early intervention or redirect vulnerability through alternative channels.
-</p>
-</div>
-
-<div class="glass-card reveal">
-<div class="card-number">03</div>
-<h3>Payment Enablement</h3>
-<p>
-Financial systems, payment infrastructure, and transaction pathways that enable certain forms of escalation.
-</p>
-</div>
-
-<div class="glass-card reveal">
-<div class="card-number">04</div>
-<h3>Offline Harm</h3>
-<p>
-The final stage where online dynamics intersect with real-world consequences.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<div class="container two-col">
-
-<div class="panel panel-dark reveal">
-
-<div class="section-label">Purpose</div>
-
-<h2>
-A framework designed to support clearer institutional understanding.
-</h2>
-
-</div>
-
-
-<div class="panel panel-light reveal">
-
-<p>
-The goal of the A3M Pipeline is not to assign blame to individual actors or platforms. Instead, it aims to provide a structured analytical lens through which policymakers, researchers, and institutions can better understand systemic escalation dynamics.
-</p>
-
-<p>
-By mapping how these layers interact, the framework encourages earlier intervention points and more coherent policy discussion around complex digital ecosystems.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<div class="container">
-
-<div class="panel panel-light reveal">
-
-<div class="section-label">Development Status</div>
-
-<h2>
-Framework currently in development.
-</h2>
-
-<p>
-The A3M Pipeline is an early-stage analytical framework currently under development within Darkvoid Research. Further refinement, mapping, and analytical expansion will continue as the model evolves.
-</p>
-
-<div class="item-status">Framework In Development</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- PROJECT NAV (PLACED BEFORE CONTACT) -->
-
-<section class="section" id="project-nav">
-
-<div class="container">
-
-<div class="project-nav reveal">
-
-<a href="kerala-model-2.html" class="project-nav-link">
-
-<span class="project-nav-label">Previous Project</span>
-<span class="project-nav-title">Kerala Model 2.0</span>
-
-</a>
-
-
-<a href="projects.html" class="project-nav-center">
-Back to Projects
-</a>
-
-
-<a href="health-access.html" class="project-nav-link align-right">
-
-<span class="project-nav-label">Next Project</span>
-<span class="project-nav-title">Health Access Systems</span>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section" id="contact-strip">
-
-<div class="container">
-
-<div class="contact-panel reveal">
-
-<div class="section-label">Project Enquiries</div>
-
-<h2>
-Open to discussion around research, systems analysis, and policy frameworks.
-</h2>
-
-<p>
-Darkvoid welcomes conversations with researchers, institutions, and individuals interested in analytical frameworks, systems thinking, and policy-oriented work.
-</p>
-
-<div class="contact-actions">
-
-<a href="contact.html#contact-form" class="btn btn-dark">
-Open Contact Form
-</a>
-
-<div class="pill">
-Ireland • Global
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-</main>
-
-
-
-<footer class="footer">
-
-<div class="container footer-inner footer-grid">
-
-<div class="footer-brand">
-<img src="logo.png" alt="Darkvoid">
-<span>DARKVOID — Projects</span>
-</div>
-
-<nav class="footer-links">
-<a href="index.html#about">About</a>
-<a href="platform.html">Platform</a>
-<a href="research.html">Research</a>
-<a href="projects.html">Projects</a>
-<a href="notes.html">Notes</a>
-<a href="publications.html">Publications</a>
-<a href="contact.html#contact-form">Contact</a>
-</nav>
-
-<div class="footer-meta">
-Independent research • Systems thinking • Institutional analysis
-</div>
-
-</div>
-
-<div class="container footer-rights">
-All rights reserved © Darkvoid by Rd
-</div>
-
-</footer>
-
-
-<script src="script.js"></script>
-
+  <div class="bg"></div>
+  <div class="grid"></div>
+  <div class="ambient"></div>
+
+  <div class="signal-bar">
+    <div class="container signal-inner">
+      <div class="signal-left">
+        <span>Darkvoid</span>
+        <span>Framework Research</span>
+      </div>
+      <div class="signal-right">
+        <span>Ireland</span>
+        <span>Global</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="Darkvoid logo">
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="platform.html">Platform</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="notes.html">Notes</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html#contact-form">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero project-dark project-hero-dark" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="hero-kicker">Darkvoid Framework</p>
+
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span>A3M Pipeline</span>
+          </div>
+
+          <h1>
+            The structural chain through which algorithmic exposure can escalate toward offline harm.
+          </h1>
+
+          <p class="hero-text">
+            A3M Pipeline is a Darkvoid framework for understanding how algorithmic systems, access failure, payment pathways, and institutional blind spots may interact across connected stages of escalation. It is concerned not only with harmful outcomes, but with the structural route through which risk can intensify across digital, economic, and real-world environments.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#pipeline-chain" class="btn btn-dark">View the Structure</a>
+            <a href="#framework" class="btn btn-light">View the Framework</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="label">Framework Status</span>
+              <span class="value">Early Framework Live</span>
+            </div>
+            <div class="stat">
+              <span class="label">Domain</span>
+              <span class="value">Digital systems • Governance • Institutional analysis</span>
+            </div>
+            <div class="stat">
+              <span class="label">Purpose</span>
+              <span class="value">Understanding escalation across linked systems</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="visual">
+            <div class="halo"></div>
+            <div class="ring ring1"></div>
+            <div class="ring ring2"></div>
+            <div class="ring ring3"></div>
+            <div class="ring-soft"></div>
+            <div class="orbit-line"></div>
+
+            <div class="logo-panel">
+              <div class="logo-wrap">
+                <img src="logo.png" class="hero-logo" alt="A3M Pipeline">
+              </div>
+              <p class="panel-text">
+                A Darkvoid framework for tracing how digital systems, access failures, and enabling structures can connect to offline consequence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container two-col">
+        <div class="panel panel-dark reveal">
+          <div class="section-label">The Problem</div>
+          <h2>
+            Escalation is often treated as a final event when it is more accurately a movement through connected systems.
+          </h2>
+        </div>
+
+        <div class="panel panel-light reveal">
+          <p>
+            Harmful outcomes in digital and physical environments are often discussed as isolated incidents, platform failures, or individual acts. Yet many such outcomes may emerge through linked structures of amplification, access weakness, enabling infrastructure, and incomplete institutional response.
+          </p>
+          <p>
+            A3M Pipeline exists to interpret this connected movement more clearly. It asks how digital exposure can intensify, how vulnerability can remain insufficiently interrupted, and how escalation may continue through wider systems before appearing as visible offline consequence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section project-dark" id="pipeline-chain">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Escalation Structure</div>
+          <h2>Four linked layers shaping movement from exposure to real-world harm.</h2>
+          <p>
+            A3M Pipeline should be read as a structural pathway. The framework is concerned with how amplification, institutional weakness, enabling systems, and offline consequence can form a connected architecture rather than a set of unrelated stages.
+          </p>
+        </div>
+
+        <div class="a3m-grid">
+          <div class="a3m-stage reveal">
+            <div class="a3m-stage-number">01</div>
+            <h3>Algorithmic Escalation</h3>
+            <p>
+              Recommendation systems, ranking logic, engagement incentives, and visibility structures can intensify exposure, repetition, and behavioural direction.
+            </p>
+            <div class="a3m-line"></div>
+          </div>
+
+          <div class="a3m-stage reveal">
+            <div class="a3m-stage-number">02</div>
+            <h3>Access Failure</h3>
+            <p>
+              Institutional gaps, service weakness, delayed intervention, or unmet support needs can leave vulnerability insufficiently interrupted at an earlier stage.
+            </p>
+            <div class="a3m-line"></div>
+          </div>
+
+          <div class="a3m-stage reveal">
+            <div class="a3m-stage-number">03</div>
+            <h3>Payment Enablement</h3>
+            <p>
+              Financial infrastructure, transaction pathways, and monetisation channels can enable continuation, reinforcement, or operational movement within harmful ecosystems.
+            </p>
+            <div class="a3m-line"></div>
+          </div>
+
+          <div class="a3m-stage reveal">
+            <div class="a3m-stage-number">04</div>
+            <h3>Offline Harm</h3>
+            <p>
+              The result may be real-world consequence where digital exposure and enabling structures intersect with physical behaviour, institutional burden, or public harm.
+            </p>
+            <div class="a3m-line"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-missed">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Why Existing Systems Miss It</div>
+          <h2>Escalation becomes harder to understand when institutions see only one layer at a time.</h2>
+          <p>
+            Platforms may focus on content, financial systems on transactions, public systems on outcomes, and institutions on incident response. That fragmentation can make the connected nature of escalation harder to see clearly.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal">
+            <div class="card-number">01</div>
+            <h3>Layered Responsibility</h3>
+            <p>
+              Different actors may control different points in the chain, making it difficult to interpret escalation as one connected structure.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-number">02</div>
+            <h3>Surface Event Bias</h3>
+            <p>
+              Public attention often gathers around visible incidents rather than around the pathways through which risk gradually intensified.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-number">03</div>
+            <h3>Weak Early Interruption</h3>
+            <p>
+              Without clearer structural interpretation, institutions may intervene late, after escalation has already moved across multiple systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="framework">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Darkvoid Framework</div>
+          <h2>A3M Pipeline is a structural escalation framework, not just a commentary on online harm.</h2>
+          <p>
+            Its value lies in helping linked systems be interpreted together. The framework is designed to support clearer thinking around digital governance, institutional response, financial enablement, and points of earlier intervention.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="glass-card reveal">
+            <div class="card-number">01</div>
+            <h3>Trace the Pathway</h3>
+            <p>
+              Use the framework to map how exposure may move through amplification, access weakness, enablement, and eventual real-world consequence.
+            </p>
+          </div>
+
+          <div class="glass-card reveal">
+            <div class="card-number">02</div>
+            <h3>Locate Intervention Points</h3>
+            <p>
+              Identify where platforms, institutions, services, or financial systems may have stronger opportunities to interrupt escalation earlier.
+            </p>
+          </div>
+
+          <div class="glass-card reveal">
+            <div class="card-number">03</div>
+            <h3>Support Better Governance Thinking</h3>
+            <p>
+              Shift attention from isolated blame toward more coherent structural interpretation across connected systems of risk.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="policy-relevance">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Policy & Institutional Relevance</div>
+          <h2>Why this project matters beyond platform criticism.</h2>
+          <p>
+            A3M Pipeline can support serious discussion across digital governance, institutional design, financial infrastructure, early intervention logic, and wider public policy thinking around complex systems of escalation.
+          </p>
+        </div>
+
+        <div class="a3m-notes">
+          <div class="a3m-note reveal">
+            <h3>Digital Governance</h3>
+            <p>
+              The framework helps show how algorithmic environments can shape exposure patterns that matter far beyond the screen itself.
+            </p>
+          </div>
+
+          <div class="a3m-note reveal">
+            <h3>Institutional Response</h3>
+            <p>
+              It offers a structure for understanding why fragmented intervention can miss the wider chain through which vulnerability intensifies.
+            </p>
+          </div>
+
+          <div class="a3m-note reveal">
+            <h3>Future Development</h3>
+            <p>
+              It creates a basis for future essays, policy notes, system maps, and deeper analytical work on escalation, infrastructure, and public risk.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="future-development">
+      <div class="container two-col">
+        <div class="panel panel-dark reveal">
+          <div class="section-label">Future Development</div>
+          <h2>
+            A3M Pipeline can evolve into a flagship Darkvoid research strand on digital escalation, enabling systems, and institutional blind spots.
+          </h2>
+        </div>
+
+        <div class="panel panel-light reveal">
+          <p>
+            This page establishes the conceptual base of a wider analytical direction. Over time it can expand into formal research notes, case-based interpretation, diagrams, policy essays, and more detailed structural work on how escalation moves across digital, economic, and institutional environments.
+          </p>
+          <p>
+            As Darkvoid develops further, A3M Pipeline should stand as one of its defining frameworks — because it helps make visible the chain through which complex risk is often generated, enabled, and recognised too late.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="project-nav">
+      <div class="container">
+        <div class="project-nav reveal">
+          <a href="kerala-model-2.html" class="project-nav-link">
+            <span class="project-nav-label">Previous Project</span>
+            <span class="project-nav-title">Kerala Model 2.0</span>
+          </a>
+
+          <a href="projects.html" class="project-nav-center">
+            Back to Projects
+          </a>
+
+          <a href="health-access.html" class="project-nav-link align-right">
+            <span class="project-nav-label">Next Project</span>
+            <span class="project-nav-title">Health Access Systems</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact-strip">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="section-label">Project Enquiries</div>
+          <h2>Open to serious discussion around A3M Pipeline, digital escalation, and systems analysis.</h2>
+          <p>
+            Darkvoid welcomes conversation around the framework itself, its future development, and its wider relevance across governance, institutions, digital systems, and policy-oriented research.
+          </p>
+
+          <div class="contact-actions">
+            <a href="contact.html#contact-form" class="btn btn-dark">Open Contact Form</a>
+            <div class="pill">Ireland • Global</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Darkvoid mark">
+        <span>DARKVOID — Projects</span>
+      </div>
+
+      <nav class="footer-links">
+        <a href="index.html#about">About</a>
+        <a href="platform.html">Platform</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="notes.html">Notes</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html#contact-form">Contact</a>
+      </nav>
+
+      <div class="footer-meta">
+        Independent research • Systems thinking • Institutional analysis
+      </div>
+    </div>
+
+    <div class="container footer-rights">
+      All rights reserved © Darkvoid by Rd
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

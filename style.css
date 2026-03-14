@@ -1263,6 +1263,15 @@ h1{
   }
 }
 
+.platform-meta{
+  margin-top:12px;
+  font-size:11px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.55);
+  text-align:center;
+}
+
 @media (max-width:1180px){
   .cards{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr}
@@ -1278,11 +1287,10 @@ h1{
 
 @media (max-width:900px){
   .hero-stats,
-  .form-grid{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr}
+  .form-grid,
   .project-nav{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
   .project-nav-link.align-right{text-align:left}
-  .project-nav-center{min-height:72px}
 }
 
 @media (max-width:760px){
@@ -1309,7 +1317,9 @@ h1{
   }
 
   .signal-left,
-  .signal-right{gap:10px}
+  .signal-right{
+    gap:10px;
+  }
 
   .footer-links{
     justify-content:flex-start;
@@ -1322,7 +1332,9 @@ h1{
     padding:24px 18px 18px;
   }
 
-  .logo-wrap-home{min-height:170px}
+  .logo-wrap-home{
+    min-height:170px;
+  }
 
   .panel-meta{
     font-size:10px;
@@ -1335,5 +1347,11 @@ h1{
     max-width:30ch;
   }
 
-  .pill{width:100%}
+  .pill{
+    width:100%;
+  }
+
+  .project-nav-center{
+    min-height:72px;
+  }
 }

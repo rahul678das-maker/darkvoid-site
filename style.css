@@ -1002,10 +1002,11 @@ h1{
   }
 }
 .platform-meta{
-margin-top:14px;
+margin-top:12px;
 font-size:11px;
-letter-spacing:.28em;
+letter-spacing:.25em;
 text-transform:uppercase;
-color:rgba(11,26,36,.55);
+color:rgba(255,255,255,0.55);
+text-align:center;
 }
 

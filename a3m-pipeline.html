@@ -6,6 +6,18 @@
   <title>A3M Pipeline | Darkvoid</title>
   <meta name="description" content="A3M Pipeline — The hidden escalation architecture of modern digital harm." />
 
+  <meta property="og:title" content="A3M Pipeline | Darkvoid" />
+  <meta property="og:description" content="The hidden escalation architecture of modern digital harm." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://darkvoid.ie/a3m-pipeline.html" />
+  <meta property="og:image" content="https://darkvoid.ie/logo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A3M Pipeline | Darkvoid" />
+  <meta name="twitter:description" content="The hidden escalation architecture of modern digital harm." />
+  <meta name="twitter:image" content="https://darkvoid.ie/logo.png" />
+
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -119,7 +131,7 @@
       padding:26px;
       background:rgba(255,255,255,.82);
       border:1px solid rgba(11,26,36,.08);
-      box-shadow:var(--shadow-soft);
+      box-shadow:var(--shadow);
     }
 
     .a3m-note p{margin:12px 0 0;font-size:15px;line-height:1.8;color:var(--muted)}
@@ -145,6 +157,19 @@
   <div class="grid"></div>
   <div class="ambient"></div>
 
+  <div class="signal-bar">
+    <div class="container signal-inner">
+      <div class="signal-left">
+        <span>Darkvoid</span>
+        <span>Independent Platform</span>
+      </div>
+      <div class="signal-right">
+        <span>Ireland</span>
+        <span>Global</span>
+      </div>
+    </div>
+  </div>
+
   <header class="nav">
     <div class="container nav-inner">
       <a href="index.html" class="brand">
@@ -153,10 +178,10 @@
 
       <nav class="nav-links">
         <a href="index.html#about">About</a>
+        <a href="platform.html">Platform</a>
         <a href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="index.html#platform">Platform</a>
-        <a href="contact.html">Contact</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html#contact-form">Contact</a>
       </nav>
     </div>
   </header>
@@ -428,8 +453,8 @@
           </p>
 
           <div class="contact-actions">
-            <a href="contact.html" class="btn btn-dark">Contact Darkvoid</a>
-            <div class="pill">a3m pipeline discussion</div>
+            <a href="contact.html#contact-form" class="btn btn-dark">Contact Darkvoid</a>
+            <div class="pill">A3M Pipeline</div>
           </div>
         </div>
       </div>
@@ -437,12 +462,26 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
+    <div class="container footer-inner footer-grid">
       <div class="footer-brand">
         <img src="logo.png" alt="Darkvoid mark">
         <span>DARKVOID — A3M Pipeline</span>
       </div>
-      <div>Framework • Escalation chain • Policy relevance</div>
+
+      <nav class="footer-links">
+        <a href="index.html#about">About</a>
+        <a href="platform.html">Platform</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html#contact-form">Contact</a>
+      </nav>
+
+      <div class="footer-meta">
+        Independent research • Systems thinking • Institutional analysis
+      </div>
+    </div>
+    <div class="container footer-rights">
+      All rights reserved © Darkvoid by Rd
     </div>
   </footer>
 

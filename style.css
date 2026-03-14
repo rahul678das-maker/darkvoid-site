@@ -201,6 +201,14 @@ button,input,textarea{font:inherit}
   transform:scaleX(1);
 }
 
+.nav-links a.active{
+  color:var(--text);
+}
+
+.nav-links a.active::after{
+  transform:scaleX(1);
+}
+
 .btn{
   min-height:56px;
   display:inline-flex;
@@ -711,6 +719,48 @@ h1{
   font-size:16px;
   line-height:1.78;
   color:var(--muted);
+}
+
+.card-link{
+  color:var(--text);
+  transition:.2s ease;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+}
+
+.card-link:hover{
+  border-bottom-color:rgba(11,26,36,.35);
+}
+
+.card-link-light{
+  color:#fff;
+  border-bottom-color:transparent;
+}
+
+.card-link-light:hover{
+  border-bottom-color:rgba(255,255,255,.35);
+}
+
+.item-status{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:18px;
+  min-height:34px;
+  padding:0 12px;
+  border-radius:999px;
+  border:1px solid rgba(11,26,36,.10);
+  background:rgba(11,26,36,.04);
+  color:var(--muted2);
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.item-status-dark{
+  border-color:rgba(255,255,255,.14);
+  background:rgba(255,255,255,.08);
+  color:rgba(255,255,255,.76);
 }
 
 .dark-section{
@@ -1233,11 +1283,4 @@ h1{
   .pill{
     width:100%;
   }
-}
-.nav-links a.active{
-  color:var(--text);
-}
-
-.nav-links a.active::after{
-  transform:scaleX(1);
 }

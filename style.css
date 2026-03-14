@@ -542,6 +542,7 @@ h1{
   overflow:visible;
 }
 
+/* HOMEPAGE HERO PANEL IMPROVEMENTS */
 .logo-panel-home{
   min-height:420px;
   width:min(76%, 420px);
@@ -1045,6 +1046,7 @@ h1{
   color:#9f1c1c;
 }
 
+/* PROJECT NAVIGATION */
 .project-nav{
   margin-top:40px;
   display:grid;
@@ -1287,14 +1289,18 @@ h1{
 
 @media (max-width:900px){
   .hero-stats,
-  .form-grid,
-  .project-nav{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr}
+  .project-nav{grid-template-columns:1fr}
   .project-nav-link.align-right{text-align:left}
+  .project-nav-center{min-height:72px}
 }
 
 @media (max-width:760px){
-  .nav{top:34px}
+  .nav{
+    top:34px;
+  }
+
   .nav-links{display:none}
   .container{width:min(100% - 28px, 1220px)}
   .section{padding:68px 0}
@@ -1351,7 +1357,7 @@ h1{
     width:100%;
   }
 
-  .project-nav-center{
-    min-height:72px;
+  .project-nav-title{
+    font-size:18px;
   }
 }

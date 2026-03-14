@@ -102,7 +102,7 @@ button,input,textarea{font:inherit}
 }
 
 .container{
-  width:min(1220px, calc(100% - 40px));
+  width:min(1240px, calc(100% - 40px));
   margin-inline:auto;
 }
 
@@ -154,7 +154,11 @@ button,input,textarea{font:inherit}
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
+  gap:18px;
+}
+
+.brand{
+  flex:0 0 auto;
 }
 
 .brand img{
@@ -165,19 +169,22 @@ button,input,textarea{font:inherit}
 
 .nav-links{
   display:flex;
-  gap:28px;
+  gap:20px;
   align-items:center;
+  justify-content:flex-end;
   flex-wrap:wrap;
+  flex:1 1 auto;
 }
 
 .nav-links a{
   position:relative;
-  font-size:12px;
-  letter-spacing:.24em;
+  font-size:11px;
+  letter-spacing:.22em;
   color:var(--muted);
   transition:.25s ease;
   text-transform:uppercase;
   padding:8px 0;
+  white-space:nowrap;
 }
 
 .nav-links a::after{
@@ -542,7 +549,6 @@ h1{
   overflow:visible;
 }
 
-/* HOMEPAGE HERO PANEL IMPROVEMENTS */
 .logo-panel-home{
   min-height:420px;
   width:min(76%, 420px);
@@ -1046,7 +1052,6 @@ h1{
   color:#9f1c1c;
 }
 
-/* PROJECT NAVIGATION */
 .project-nav{
   margin-top:40px;
   display:grid;
@@ -1279,6 +1284,8 @@ h1{
   .footer-grid{grid-template-columns:1fr}
   .footer-meta{text-align:left}
   h1{max-width:900px}
+  .nav-links{gap:16px}
+  .nav-links a{font-size:10.5px;letter-spacing:.20em}
 }
 
 @media (max-width:1080px){
@@ -1302,7 +1309,7 @@ h1{
   }
 
   .nav-links{display:none}
-  .container{width:min(100% - 28px, 1220px)}
+  .container{width:min(100% - 28px, 1240px)}
   .section{padding:68px 0}
   .contact-form-panel,
   .contact-panel,

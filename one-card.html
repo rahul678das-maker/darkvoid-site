@@ -1,1 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Card | Darkvoid</title>
+  <meta name="description" content="One Card — a Darkvoid project examining unified civic access, service usability, and the structural design of public interaction." />
 
+  <meta property="og:title" content="One Card | Darkvoid" />
+  <meta property="og:description" content="A Darkvoid project examining unified civic access, service usability, and the structural design of public interaction." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://darkvoid.ie/one-card.html" />
+  <meta property="og:image" content="https://darkvoid.ie/logo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="One Card | Darkvoid" />
+  <meta name="twitter:description" content="A Darkvoid project examining unified civic access, service usability, and the structural design of public interaction." />
+  <meta name="twitter:image" content="https://darkvoid.ie/logo.png" />
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .project-hero-dark .visual{
+      background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
+      border-color:rgba(255,255,255,.18);
+    }
+
+    .project-dark{
+      position:relative;
+      color:#fff;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.05), transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.04), transparent 16%),
+        linear-gradient(180deg, #050d14 0%, #09141d 46%, #0b1a24 100%);
+      overflow:hidden;
+    }
+
+    .project-dark::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:.08;
+      background-image:
+        linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px);
+      background-size:40px 40px;
+      pointer-events:none;
+    }
+
+    .project-dark .section-label,
+    .project-dark .section-head p,
+    .project-dark p{color:rgba(255,255,255,.72)}
+
+    .project-dark h1,
+    .project-dark h2,
+    .project-dark h3{color:#fff}
+
+    .onecard-grid{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .onecard-stage{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      padding:28px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 18px 50px rgba(0,0,0,.22);
+      backdrop-filter:blur(16px);
+      transition:transform .25s ease, background .25s ease;
+    }
+
+    .onecard-stage:hover{
+      transform:translateY(-4px);
+      background:rgba(255,255,255,.09);
+    }
+
+    .onecard-stage-number{
+      display:inline-flex;
+      width:44px;
+      height:44px;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:12px;
+      letter-spacing:.18em;
+      color:rgba(255,255,255,.7);
+      margin-bottom:18px;
+    }
+
+    .onecard-stage p{
+      color:rgba(255,255,255,.72);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .onecard-line{
+      position:relative;
+      margin-top:18px;
+      height:2px;
+      background:linear-gradient(90deg, rgba(255,255,255,.28), rgba(255,255,255,.05));
+      border-radius:999px;
+      overflow:hidden;
+    }
+
+    .onecard-line::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+      animation:onecardFlow 6s linear infinite;
+    }
+
+    .onecard-notes{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .onecard-note{
+      border-radius:28px;
+      padding:26px;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(11,26,36,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .onecard-note p{
+      margin:12px 0 0;
+      font-size:15px;
+      line-height:1.8;
+      color:var(--muted);
+    }
+
+    @keyframes onecardFlow{
+      0%{transform:translateX(-120%)}
+      100%{transform:translateX(120%)}
+    }
+
+    @media (max-width:1080px){
+      .onecard-grid,
+      .onecard-notes{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:760px){
+      .onecard-grid,
+      .onecard-notes{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="grid"></div>
+  <div class="ambient"></div>
+
+  <div class="signal-bar">
+    <div class="container signal-inner">
+      <div class="signal-left">
+        <span>Darkvoid</span>
+        <span>Independent Platform</span>
+      </div>
+      <div class="signal-right">
+        <span>Ireland</span>
+        <span>Global</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="Darkvoid logo">
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="platform.html">Platform</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html#contact-form">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero project-dark project-hero-dark" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span>One Card</span>
+          </div>
+
+          <h1>
+            A unified civic access concept for simpler, clearer, and more usable public interaction.
+          </h1>
+
+          <p class="hero-text">
+            One Card is a Darkvoid project exploring whether public and civic interaction can be made more coherent through a more unified access structure. It is concerned with how identification, entitlement, verification, service navigation, and daily public interaction might be streamlined without losing institutional seriousness, administrative clarity, or public accountability.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#onecard-chain" class="btn btn-dark">View the Structure</a>
+            <a href="#framework" class="btn btn-light">View the Framework</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="label">Purpose</span>
+              <span class="value">
+                To explore a more unified access design for public systems, civic interaction, and service usability.
+              </span>
+            </div>
+            <div class="stat">
+              <span class="label">Concern</span>
+              <span class="value">
+                Fragmentation, repetitive verification, service friction, and the burden placed on people navigating multiple systems.
+              </span>
+            </div>
+            <div class="stat">
+              <span class="label">Relevance</span>
+              <span class="value">
+                Useful for public systems design, service reform thinking, administrative usability, and civic access architecture.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="visual">
+            <div class="halo"></div>
+            <div class="ring ring1"></div>
+            <div class="ring ring2"></div>
+            <div class="ring ring3"></div>
+            <div class="ring-soft"></div>
+            <div class="orbit-line"></div>
+
+            <div class="logo-panel">
+              <div class="logo-wrap">
+                <img src="logo.png" class="hero-logo" alt="One Card">
+              </div>
+              <p class="panel-text">
+                A Darkvoid concept for rethinking civic access through coherence, usability, and structural simplicity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problem">
+      <div class="container two-col">
+        <div class="panel panel-dark reveal">
+          <div class="section-label">The Problem</div>
+          <h2>
+            Public access often becomes difficult not because one service is broken, but because too many systems remain disconnected.
+          </h2>
+        </div>
+
+        <div class="panel panel-light reveal">
+          <p>
+            Many people experience public systems through repetition: repeated identity checks, repeated forms, repeated eligibility processes, repeated delays, and repeated effort in proving who they are or what they need. The burden is often transferred back to the person navigating the system.
+          </p>
+          <p>
+            One Card exists to explore whether civic interaction can be made more coherent through a structure that reduces unnecessary fragmentation while preserving institutional integrity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section project-dark" id="onecard-chain">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Access Structure</div>
+          <h2>Four linked problems shaping fragmented civic access.</h2>
+          <p>
+            One Card should be understood as a systems-design response to fragmentation. It begins by identifying the repeated burdens that make civic access more difficult than it needs to be.
+          </p>
+        </div>
+
+        <div class="onecard-grid">
+          <div class="onecard-stage reveal">
+            <div class="onecard-stage-number">01</div>
+            <h3>Identity Repetition</h3>
+            <p>
+              People repeatedly prove who they are across services, platforms, offices, and institutions that do not sufficiently recognise one another.
+            </p>
+            <div class="onecard-line"></div>
+          </div>
+
+          <div class="onecard-stage reveal">
+            <div class="onecard-stage-number">02</div>
+            <h3>Service Fragmentation</h3>
+            <p>
+              Access is spread across disconnected channels, different rules, different interfaces, and inconsistent routes of verification.
+            </p>
+            <div class="onecard-line"></div>
+          </div>
+
+          <div class="onecard-stage reveal">
+            <div class="onecard-stage-number">03</div>
+            <h3>Administrative Burden</h3>
+            <p>
+              More effort is demanded from the user in navigating forms, eligibility, updates, re-checks, and repeated institutional handoffs.
+            </p>
+            <div class="onecard-line"></div>
+          </div>
+
+          <div class="onecard-stage reveal">
+            <div class="onecard-stage-number">04</div>
+            <h3>Uneven Access Experience</h3>
+            <p>
+              The result is a public interaction environment that is harder to navigate for many people, especially where time, literacy, vulnerability, or system familiarity are limited.
+            </p>
+            <div class="onecard-line"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-missed">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Why Existing Systems Miss It</div>
+          <h2>Fragmentation is often normalised because each institution sees only its own part.</h2>
+          <p>
+            Public systems may each function within their own logic, but the user experiences them together. That gap between institutional design and lived navigation is where much of the burden emerges.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card reveal">
+            <div class="card-number">01</div>
+            <h3>Institutional Silos</h3>
+            <p>
+              Services are often designed around institutional boundaries rather than around coherent user pathways.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-number">02</div>
+            <h3>Usability as Secondary</h3>
+            <p>
+              Administrative correctness may be prioritised without enough attention to how the system actually feels to navigate in practice.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-number">03</div>
+            <h3>Repeated Verification Logic</h3>
+            <p>
+              Trust is re-established again and again across systems that lack stronger shared access architecture.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="framework">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Darkvoid Framework</div>
+          <h2>One Card is a civic access design framework, not merely a convenience concept.</h2>
+          <p>
+            Its value lies in asking how coherence, recognition, verification, and service usability can be redesigned at a structural level rather than patched only at the edge.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="glass-card reveal">
+            <div class="card-number">01</div>
+            <h3>Map the Burden</h3>
+            <p>
+              Use the framework to identify where repeated identity work and fragmented access create unnecessary friction.
+            </p>
+          </div>
+
+          <div class="glass-card reveal">
+            <div class="card-number">02</div>
+            <h3>Design for Coherence</h3>
+            <p>
+              Explore how a more unified structure could reduce duplication while retaining accountability and institutional clarity.
+            </p>
+          </div>
+
+          <div class="glass-card reveal">
+            <div class="card-number">03</div>
+            <h3>Support Better Civic Usability</h3>
+            <p>
+              Shift from fragmented service navigation toward clearer user pathways across public and civic systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="policy-relevance">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-label">Policy & Institutional Relevance</div>
+          <h2>Why this project matters beyond convenience.</h2>
+          <p>
+            One Card can support serious conversations across public administration, civic access design, service reform, user experience in state systems, and the future architecture of public interaction.
+          </p>
+        </div>
+
+        <div class="onecard-notes">
+          <div class="onecard-note reveal">
+            <h3>Public Administration</h3>
+            <p>
+              The project helps show how repetitive access structures can produce inefficiency and user burden even where services exist.
+            </p>
+          </div>
+
+          <div class="onecard-note reveal">
+            <h3>Civic Design</h3>
+            <p>
+              It offers a framework for thinking about access, recognition, and verification as design questions rather than only as compliance routines.
+            </p>
+          </div>
+
+          <div class="onecard-note reveal">
+            <h3>Future Development</h3>
+            <p>
+              It creates a basis for future policy notes, design models, implementation pathways, and wider discussion around unified civic access.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="future-development">
+      <div class="container two-col">
+        <div class="panel panel-dark reveal">
+          <div class="section-label">Future Development</div>
+          <h2>
+            One Card can evolve into a flagship Darkvoid project on civic usability, access coherence, and public systems design.
+          </h2>
+        </div>
+
+        <div class="panel panel-light reveal">
+          <p>
+            This page establishes the conceptual foundation of a wider project direction. Over time it can expand into design proposals, implementation models, service-use pathways, comparative notes, and broader work on how civic interaction can become more coherent.
+          </p>
+          <p>
+            As Darkvoid develops further, One Card should stand as one of its clearest public design projects — because civic usability is not cosmetic. It is structural.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact-strip">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="section-label">Project Enquiries</div>
+          <h2>Open to serious discussion around One Card, civic access design, and public systems usability.</h2>
+          <p>
+            Darkvoid welcomes conversation around the concept itself, its future development, and its wider relevance across institutions, public systems, and service design.
+          </p>
+
+          <div class="contact-actions">
+            <a href="contact.html#contact-form" class="btn btn-dark">Contact Darkvoid</a>
+            <div class="pill">One Card</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Darkvoid mark">
+        <span>DARKVOID — One Card</span>
+      </div>
+
+      <nav class="footer-links">
+        <a href="index.html#about">About</a>
+        <a href="platform.html">Platform</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html#contact-form">Contact</a>
+      </nav>
+
+      <div class="footer-meta">
+        Independent research • Systems thinking • Institutional analysis
+      </div>
+    </div>
+    <div class="container footer-rights">
+      All rights reserved © Darkvoid by Rd
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

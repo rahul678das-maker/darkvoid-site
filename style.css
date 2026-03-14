@@ -1234,3 +1234,10 @@ h1{
     width:100%;
   }
 }
+.nav-links a.active{
+  color:var(--text);
+}
+
+.nav-links a.active::after{
+  transform:scaleX(1);
+}

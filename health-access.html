@@ -17,7 +17,13 @@
   <meta name="twitter:description" content="A Darkvoid project examining structural barriers, service pressure, and access inequality across healthcare environments." />
   <meta name="twitter:image" content="https://darkvoid.ie/logo.png" />
 
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="DarkVoid" />
+  <link rel="manifest" href="/site.webmanifest" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,6 +33,17 @@
     .project-hero-dark .visual{
       background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
       border-color:rgba(255,255,255,.18);
+    }
+
+    .project-hero-dark .btn-light{
+      background:#f4f7fb;
+      color:#081018;
+      border-color:#f4f7fb;
+      box-shadow:0 18px 60px rgba(255,255,255,.12);
+    }
+
+    .project-hero-dark .btn-light:hover{
+      transform:translateY(-2px);
     }
 
     .project-dark{
@@ -143,6 +160,49 @@
       color:var(--muted);
     }
 
+    .footer-bottom-elite{
+      padding:0 0 24px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:16px;
+    }
+
+    .footer-bottom-center{
+      justify-self:center;
+      font-size:12px;
+      letter-spacing:.08em;
+      color:var(--muted2);
+      text-align:center;
+    }
+
+    .footer-bottom-right{
+      justify-self:end;
+    }
+
+    .privacy-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(11,26,36,.14);
+      background:rgba(255,255,255,.90);
+      color:var(--text);
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      box-shadow:0 12px 30px rgba(11,26,36,.06);
+      transition:.22s ease;
+    }
+
+    .privacy-link:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 36px rgba(11,26,36,.10);
+    }
+
     @keyframes systemsFlow{
       0%{transform:translateX(-120%)}
       100%{transform:translateX(120%)}
@@ -151,6 +211,17 @@
     @media (max-width:1080px){
       .systems-grid,
       .systems-notes{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:900px){
+      .footer-bottom-elite{
+        grid-template-columns:1fr;
+      }
+
+      .footer-bottom-center,
+      .footer-bottom-right{
+        justify-self:center;
+      }
     }
 
     @media (max-width:760px){
@@ -515,8 +586,13 @@
         Independent research • Systems thinking • Institutional analysis
       </div>
     </div>
-    <div class="container footer-rights">
-      All rights reserved © Darkvoid by Rd
+
+    <div class="container footer-bottom-elite">
+      <div></div>
+      <div class="footer-bottom-center">All rights reserved © Darkvoid by Rd</div>
+      <div class="footer-bottom-right">
+        <a href="privacy.html" class="privacy-link">Privacy</a>
+      </div>
     </div>
   </footer>
 

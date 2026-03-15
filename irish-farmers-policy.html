@@ -4,20 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Irish Farmers Policy | Darkvoid</title>
-  <meta name="description" content="Irish Farmers Policy — a Darkvoid project examining fairness, bargaining power, price structure, and institutional pressure in Irish farming outcomes." />
+  <meta name="description" content="Irish Farmers Policy — a Darkvoid project examining structural pressure, pricing imbalance, imports, institutional design, and agricultural fairness." />
 
   <meta property="og:title" content="Irish Farmers Policy | Darkvoid" />
-  <meta property="og:description" content="A Darkvoid project examining fairness, bargaining power, price structure, and institutional pressure in Irish farming outcomes." />
+  <meta property="og:description" content="A Darkvoid project examining structural pressure, pricing imbalance, imports, institutional design, and agricultural fairness." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://darkvoid.ie/irish-farmers-policy.html" />
   <meta property="og:image" content="https://darkvoid.ie/logo.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Irish Farmers Policy | Darkvoid" />
-  <meta name="twitter:description" content="A Darkvoid project examining fairness, bargaining power, price structure, and institutional pressure in Irish farming outcomes." />
+  <meta name="twitter:description" content="A Darkvoid project examining structural pressure, pricing imbalance, imports, institutional design, and agricultural fairness." />
   <meta name="twitter:image" content="https://darkvoid.ie/logo.png" />
 
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="DarkVoid" />
+  <link rel="manifest" href="/site.webmanifest" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,6 +33,17 @@
     .project-hero-dark .visual{
       background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
       border-color:rgba(255,255,255,.18);
+    }
+
+    .project-hero-dark .btn-light{
+      background:#f4f7fb;
+      color:#081018;
+      border-color:#f4f7fb;
+      box-shadow:0 18px 60px rgba(255,255,255,.12);
+    }
+
+    .project-hero-dark .btn-light:hover{
+      transform:translateY(-2px);
     }
 
     .project-dark{
@@ -143,6 +160,49 @@
       color:var(--muted);
     }
 
+    .footer-bottom-elite{
+      padding:0 0 24px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:16px;
+    }
+
+    .footer-bottom-center{
+      justify-self:center;
+      font-size:12px;
+      letter-spacing:.08em;
+      color:var(--muted2);
+      text-align:center;
+    }
+
+    .footer-bottom-right{
+      justify-self:end;
+    }
+
+    .privacy-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(11,26,36,.14);
+      background:rgba(255,255,255,.90);
+      color:var(--text);
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      box-shadow:0 12px 30px rgba(11,26,36,.06);
+      transition:.22s ease;
+    }
+
+    .privacy-link:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 36px rgba(11,26,36,.10);
+    }
+
     @keyframes farmersFlow{
       0%{transform:translateX(-120%)}
       100%{transform:translateX(120%)}
@@ -151,6 +211,17 @@
     @media (max-width:1080px){
       .farmers-grid,
       .farmers-notes{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:900px){
+      .footer-bottom-elite{
+        grid-template-columns:1fr;
+      }
+
+      .footer-bottom-center,
+      .footer-bottom-right{
+        justify-self:center;
+      }
     }
 
     @media (max-width:760px){
@@ -205,15 +276,15 @@
           </div>
 
           <h1>
-            The structural chain of bargaining weakness, price pressure, and institutional imbalance in Irish farming.
+            The structural pressures shaping agricultural strain, price imbalance, and rural economic vulnerability.
           </h1>
 
           <p class="hero-text">
-            Irish Farmers Policy is a Darkvoid project for understanding how farming outcomes are shaped by bargaining asymmetry, market structure, processor and retailer leverage, price formation, policy logic, and institutional design. It examines why farming strain often persists even when the public visibility of the sector is high.
+            Irish Farmers Policy is a Darkvoid project examining how agricultural pressure is produced through pricing systems, import dynamics, retailer power, institutional imbalance, and uneven economic burden. It asks how farming difficulty becomes structural rather than incidental, and why many pressures on farmers cannot be understood through weather, protest, or market fluctuation alone.
           </p>
 
           <div class="hero-actions">
-            <a href="#policy-chain" class="btn btn-dark">View the Structure</a>
+            <a href="#pressure-chain" class="btn btn-dark">View the Structure</a>
             <a href="#framework" class="btn btn-light">View the Framework</a>
           </div>
 
@@ -224,11 +295,11 @@
             </div>
             <div class="stat">
               <span class="label">Domain</span>
-              <span class="value">Agriculture • Market structure • Public policy</span>
+              <span class="value">Agriculture • Pricing systems • Policy analysis</span>
             </div>
             <div class="stat">
               <span class="label">Purpose</span>
-              <span class="value">Understanding fairness, pricing, and bargaining pressure</span>
+              <span class="value">Understanding structural pressure on farmers</span>
             </div>
           </div>
         </div>
@@ -247,7 +318,7 @@
                 <img src="logo.png" class="hero-logo" alt="Irish Farmers Policy">
               </div>
               <p class="panel-text">
-                A Darkvoid project for tracing how price, power, and policy structure combine to shape farming outcomes in Ireland.
+                A Darkvoid framework for tracing how pricing, imports, policy, and institutional design shape farming strain.
               </p>
             </div>
           </div>
@@ -260,28 +331,28 @@
         <div class="panel panel-dark reveal">
           <div class="section-label">The Problem</div>
           <h2>
-            Farming pressure is often discussed at the surface when the deeper issue is structural imbalance.
+            Farmer pressure is often treated as a temporary sector issue when it is more accurately a structural systems issue.
           </h2>
         </div>
 
         <div class="panel panel-light reveal">
           <p>
-            Farmers do not operate in a neutral environment. Their outcomes are shaped by pricing systems, purchasing power asymmetry, processor and retailer leverage, cost burden, policy expectations, and the institutional distribution of risk across the agricultural chain.
+            Agricultural frustration is often discussed through protest moments, price complaints, or single-sector events. But pressure on farmers may be better understood as the result of linked forces: input cost burden, pricing imbalance, import competition, retailer leverage, and policy systems that do not distribute power or resilience evenly.
           </p>
           <p>
-            Irish Farmers Policy exists to interpret these conditions structurally — not as disconnected frustrations, but as a connected pattern of imbalance affecting fairness, viability, and long-term sustainability.
+            Irish Farmers Policy exists to interpret these pressures structurally. It asks how farmers can remain central to food systems while remaining weak within the economic architecture that governs returns, bargaining power, and long-term sustainability.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section project-dark" id="policy-chain">
+    <section class="section project-dark" id="pressure-chain">
       <div class="container">
         <div class="section-head reveal">
-          <div class="section-label">Structural Chain</div>
-          <h2>Four linked layers shaping farming pressure in Ireland.</h2>
+          <div class="section-label">Pressure Structure</div>
+          <h2>Four linked layers shaping agricultural strain and imbalance.</h2>
           <p>
-            Irish Farmers Policy should be read as a movement architecture. Pressure is often generated across connected stages rather than through one single point of difficulty.
+            Irish Farmers Policy should be read as a structural pathway. Pressure grows through linked stages rather than through one isolated policy or market event.
           </p>
         </div>
 
@@ -290,34 +361,34 @@
             <div class="farmers-stage-number">01</div>
             <h3>Input Burden</h3>
             <p>
-              Farmers begin from a position shaped by input costs, compliance expectations, volatility, and exposure to pressures they do not fully control.
+              Rising feed, fuel, fertiliser, labour, compliance, and operational costs can compress viability before pricing is even considered.
             </p>
             <div class="farmers-line"></div>
           </div>
 
           <div class="farmers-stage reveal">
             <div class="farmers-stage-number">02</div>
-            <h3>Bargaining Weakness</h3>
+            <h3>Pricing Imbalance</h3>
             <p>
-              Uneven power across the supply chain can leave individual farmers negotiating from structurally weaker positions than larger market actors.
+              Farmers may face weak bargaining power relative to processors, wholesalers, and retailers, leaving primary production underpaid within the wider value chain.
             </p>
             <div class="farmers-line"></div>
           </div>
 
           <div class="farmers-stage reveal">
             <div class="farmers-stage-number">03</div>
-            <h3>Price Compression</h3>
+            <h3>Import & Market Pressure</h3>
             <p>
-              Value distribution across processors, retailers, imports, and wider chain dynamics can squeeze farm-level returns despite broader market activity.
+              Competing imports, price-sensitive retail structures, and global market exposure can intensify downward pressure on domestic returns.
             </p>
             <div class="farmers-line"></div>
           </div>
 
           <div class="farmers-stage reveal">
             <div class="farmers-stage-number">04</div>
-            <h3>Viability Strain</h3>
+            <h3>Rural Vulnerability</h3>
             <p>
-              The end result is ongoing pressure on fairness, income stability, long-term sustainability, and the social resilience of farming communities.
+              The result may be lower resilience, farm exits, reduced intergenerational continuity, and broader strain across rural social and economic life.
             </p>
             <div class="farmers-line"></div>
           </div>
@@ -329,34 +400,34 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">Why Existing Systems Miss It</div>
-          <h2>The deeper problem disappears when focus remains only on visible protest or price complaint.</h2>
+          <h2>Structural agricultural pressure is harder to see when attention stays fixed on the latest dispute.</h2>
           <p>
-            Structural farming pressure can remain poorly understood when institutions respond only to immediate demands rather than to the architecture producing them.
+            Public debate often centres on the visible moment — a protest, a pricing complaint, an import controversy — while the underlying architecture of power, leverage, and economic vulnerability remains less clearly addressed.
           </p>
         </div>
 
         <div class="cards">
           <div class="card reveal">
             <div class="card-number">01</div>
-            <h3>Fragmented Responsibility</h3>
+            <h3>Retail Distance</h3>
             <p>
-              Different actors see different parts of the agricultural chain, which can prevent the full structure of imbalance from being interpreted clearly.
+              Consumers see shelves and prices, but often do not see how weak returns at farm level are distributed across the wider food system.
             </p>
           </div>
 
           <div class="card reveal">
             <div class="card-number">02</div>
-            <h3>Fairness Without Structure</h3>
+            <h3>Fragmented Responsibility</h3>
             <p>
-              Public debate may use the language of fairness, but often without a deeper model of how power and value actually move through the chain.
+              Pressure is spread across supply chains, markets, regulations, and institutions, making accountability harder to interpret clearly.
             </p>
           </div>
 
           <div class="card reveal">
             <div class="card-number">03</div>
-            <h3>Pressure Normalisation</h3>
+            <h3>Short-Term Response</h3>
             <p>
-              Long-standing strain can become treated as normal sector reality, even when it reflects deeper policy and market imbalance.
+              Relief may focus on immediate cost or protest pressure while deeper structural questions of pricing power and resilience remain unresolved.
             </p>
           </div>
         </div>
@@ -367,26 +438,26 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">Darkvoid Framework</div>
-          <h2>Irish Farmers Policy is a structural interpretation framework, not just a sector commentary page.</h2>
+          <h2>Irish Farmers Policy is a structural framework, not only a reaction to sectoral frustration.</h2>
           <p>
-            Its value lies in helping agricultural pressure be understood through linked systems of cost, power, pricing, and institutional logic rather than through surface-level reaction alone.
+            Its value lies in helping agricultural strain be read as a systems issue involving cost, leverage, imports, market architecture, and rural sustainability.
           </p>
         </div>
 
         <div class="cards">
           <div class="glass-card reveal">
             <div class="card-number">01</div>
-            <h3>Trace the Imbalance</h3>
+            <h3>Trace the Pressure</h3>
             <p>
-              Use the framework to map how pressure moves from cost exposure to bargaining weakness and farm-level strain.
+              Use the framework to map how farming difficulty grows across inputs, pricing, competition, and long-term vulnerability.
             </p>
           </div>
 
           <div class="glass-card reveal">
             <div class="card-number">02</div>
-            <h3>Locate Value Distortion</h3>
+            <h3>Locate Imbalance</h3>
             <p>
-              Identify where the distribution of value and risk becomes most unequal across the agricultural chain.
+              Identify where bargaining weakness, market design, or policy architecture leaves farmers carrying disproportionate strain.
             </p>
           </div>
 
@@ -394,7 +465,7 @@
             <div class="card-number">03</div>
             <h3>Support Better Policy Thinking</h3>
             <p>
-              Shift attention from reactive dispute handling toward clearer interpretation of fairness, viability, and structural reform.
+              Shift debate away from temporary outrage toward stronger structural interpretation of agricultural fairness and resilience.
             </p>
           </div>
         </div>
@@ -405,31 +476,31 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">Policy & Institutional Relevance</div>
-          <h2>Why this project matters beyond agricultural debate.</h2>
+          <h2>Why this project matters beyond agricultural commentary.</h2>
           <p>
-            Irish Farmers Policy can support serious conversations across market fairness, bargaining architecture, agricultural governance, rural viability, and future public policy development.
+            Irish Farmers Policy can support more serious discussion across food systems, domestic production, pricing fairness, supply-chain leverage, rural development, and future agricultural policy.
           </p>
         </div>
 
         <div class="farmers-notes">
           <div class="farmers-note reveal">
-            <h3>Sector Governance</h3>
+            <h3>Food Systems</h3>
             <p>
-              The project helps interpret how agricultural outcomes are shaped not only by production but by institutional and market structure.
+              The project helps show that food-system resilience depends not only on supply, but on the conditions under which producers remain economically viable.
             </p>
           </div>
 
           <div class="farmers-note reveal">
-            <h3>Fairness Analysis</h3>
+            <h3>Institutional Design</h3>
             <p>
-              It offers a stronger framework for thinking about value distribution, negotiating weakness, and whether current arrangements are structurally equitable.
+              It offers a structure for understanding where policy, pricing frameworks, and power concentration may create persistent imbalance.
             </p>
           </div>
 
           <div class="farmers-note reveal">
             <h3>Future Research</h3>
             <p>
-              It creates a basis for future policy notes, evidence summaries, public analysis, and deeper work on Irish farming systems and incentives.
+              It creates a basis for future essays, evidence notes, policy proposals, and more detailed work on agriculture, rural economics, and structural fairness.
             </p>
           </div>
         </div>
@@ -441,16 +512,16 @@
         <div class="panel panel-dark reveal">
           <div class="section-label">Future Development</div>
           <h2>
-            Irish Farmers Policy can evolve into a major Darkvoid research strand on agricultural fairness, market structure, and sector pressure.
+            Irish Farmers Policy can evolve into a major Darkvoid strand on agriculture, price architecture, and rural economic structure.
           </h2>
         </div>
 
         <div class="panel panel-light reveal">
           <p>
-            This page establishes the conceptual base of a wider analytical direction. Over time it can expand into structured evidence notes, market-chain interpretation, policy models, and clearer public analysis of farming pressure in Ireland.
+            This page establishes the conceptual base of a wider analytical direction. Over time it can expand into policy notes, pricing diagrams, evidence-based commentary, system maps, and more formal research on agricultural structure.
           </p>
           <p>
-            As Darkvoid develops further, Irish Farmers Policy should stand as one of its most publicly relevant projects — because agricultural fairness is not only a sector issue, but a structural economic and institutional one.
+            As Darkvoid develops further, Irish Farmers Policy should stand as one of its strongest public-economic projects — because agricultural strain often reveals how entire systems distribute pressure, value, and institutional priority.
           </p>
         </div>
       </div>
@@ -480,9 +551,9 @@
       <div class="container">
         <div class="contact-panel reveal">
           <div class="section-label">Project Enquiries</div>
-          <h2>Open to serious discussion around Irish Farmers Policy, agricultural fairness, and structural analysis.</h2>
+          <h2>Open to serious discussion around Irish Farmers Policy, agricultural structure, and policy-oriented systems analysis.</h2>
           <p>
-            Darkvoid welcomes conversation around the project itself, its future development, and its wider relevance across policy, market structure, and public debate.
+            Darkvoid welcomes conversation around the framework itself, its future development, and its wider relevance across agriculture, supply chains, rural economics, and public policy.
           </p>
 
           <div class="contact-actions">
@@ -515,8 +586,13 @@
         Independent research • Systems thinking • Institutional analysis
       </div>
     </div>
-    <div class="container footer-rights">
-      All rights reserved © Darkvoid by Rd
+
+    <div class="container footer-bottom-elite">
+      <div></div>
+      <div class="footer-bottom-center">All rights reserved © Darkvoid by Rd</div>
+      <div class="footer-bottom-right">
+        <a href="privacy.html" class="privacy-link">Privacy</a>
+      </div>
     </div>
   </footer>
 

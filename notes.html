@@ -1,330 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Notes | Darkvoid</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Developing research notes, early frameworks, and structured analytical directions across systems, institutions, and public complexity." />
+<title>Notes | Darkvoid</title>
 
-  <meta property="og:title" content="Darkvoid Notes" />
-  <meta property="og:description" content="Developing research notes, early frameworks, and structured analytical directions across systems, institutions, and public complexity." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://darkvoid.ie/notes.html" />
-  <meta property="og:image" content="https://darkvoid.ie/logo.png" />
+<meta name="description" content="Developing research notes, early frameworks, and structured analytical directions across systems, institutions, and public complexity." />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Darkvoid Notes" />
-  <meta name="twitter:description" content="Developing research notes, early frameworks, and structured analytical directions across systems, institutions, and public complexity." />
-  <meta name="twitter:image" content="https://darkvoid.ie/logo.png" />
+<meta property="og:title" content="Darkvoid Notes" />
+<meta property="og:description" content="Developing research notes, early frameworks, and structured analytical directions across systems, institutions, and public complexity." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://darkvoid.ie/notes.html" />
+<meta property="og:image" content="https://darkvoid.ie/logo.png" />
 
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="DarkVoid" />
-  <link rel="manifest" href="/site.webmanifest" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Darkvoid Notes" />
+<meta name="twitter:description" content="Developing research notes, early frameworks, and structured analytical directions across systems, institutions, and public complexity." />
+<meta name="twitter:image" content="https://darkvoid.ie/logo.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="DarkVoid" />
+<link rel="manifest" href="/site.webmanifest" />
 
-  <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+  .footer-bottom-elite{
+    padding:0 0 24px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:16px;
+  }
+
+  .footer-bottom-center{
+    justify-self:center;
+    font-size:12px;
+    letter-spacing:.08em;
+    color:var(--muted2);
+    text-align:center;
+  }
+
+  .footer-bottom-right{
+    justify-self:end;
+  }
+
+  .privacy-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:42px;
+    padding:0 18px;
+    border-radius:999px;
+    border:1px solid rgba(11,26,36,.14);
+    background:rgba(255,255,255,.90);
+    color:var(--text);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    box-shadow:0 12px 30px rgba(11,26,36,.06);
+    transition:.22s ease;
+  }
+
+  .privacy-link:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 36px rgba(11,26,36,.10);
+  }
+
+  @media (max-width:900px){
+    .footer-bottom-elite{
+      grid-template-columns:1fr;
+    }
+
+    .footer-bottom-center,
+    .footer-bottom-right{
+      justify-self:center;
+    }
+  }
+</style>
+
 </head>
 <body>
 
-  <div class="bg"></div>
-  <div class="grid"></div>
-  <div class="ambient"></div>
+<div class="bg"></div>
+<div class="grid"></div>
+<div class="ambient"></div>
 
-  <div class="signal-bar">
-    <div class="container signal-inner">
-      <div class="signal-left">
-        <span>Darkvoid</span>
-        <span>Independent Platform</span>
+<div class="signal-bar">
+  <div class="container signal-inner">
+    <div class="signal-left">
+      <span>Darkvoid</span>
+      <span>Independent Platform</span>
+    </div>
+
+    <div class="signal-right">
+      <span>Ireland</span>
+      <span>Global</span>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Darkvoid logo">
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="platform.html">Platform</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="notes.html" class="active">Notes</a>
+      <a href="publications.html">Publications</a>
+      <a href="contact.html#contact-form">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <p class="hero-kicker">Developing Notes &amp; Frameworks</p>
+
+        <div class="eyebrow">
+          <span class="dot"></span>
+          <span>Darkvoid Notes</span>
+        </div>
+
+        <h1>
+          Developing research notes, early frameworks, and structured analytical directions.
+        </h1>
+
+        <p class="hero-text">
+          Darkvoid Notes gathers early frameworks, emerging research directions, and developing analytical pieces that sit between broad research themes and more formal future publications. It is a working layer of the platform — one that shows how ideas are being organised, refined, and prepared for deeper expression.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#note-archive" class="btn btn-dark">View Notes</a>
+          <a href="publications.html" class="btn btn-light">View Publications</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="label">Status</span>
+            <span class="value">Working layer of the platform</span>
+          </div>
+          <div class="stat">
+            <span class="label">Focus</span>
+            <span class="value">Early ideas • Frameworks • Structured thought</span>
+          </div>
+          <div class="stat">
+            <span class="label">Role</span>
+            <span class="value">Bridge between research and publication</span>
+          </div>
+        </div>
       </div>
 
-      <div class="signal-right">
-        <span>Ireland</span>
-        <span>Global</span>
+      <div class="hero-visual reveal">
+        <div class="visual">
+          <div class="halo"></div>
+          <div class="ring ring1"></div>
+          <div class="ring ring2"></div>
+          <div class="ring ring3"></div>
+          <div class="ring-soft"></div>
+          <div class="orbit-line"></div>
+
+          <div class="logo-panel">
+            <div class="logo-wrap">
+              <img src="logo.png" class="hero-logo" alt="Darkvoid Notes">
+            </div>
+            <p class="panel-text">
+              A working archive of emerging analytical directions, early frameworks, and developing intellectual structure.
+            </p>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section dark-section" id="notes-purpose">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-label">Purpose of This Layer</div>
+        <h2>
+          Not everything begins as a finished paper. Some ideas need a structured place to develop first.
+        </h2>
+
+        <p>
+          Darkvoid Notes exists for work that is serious but still forming — ideas with direction, analytical value, and intellectual promise that benefit from a more open working stage before becoming formal publications or larger project architectures.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="glass-card reveal">
+          <div class="card-number">01</div>
+          <h3>Early Frameworks</h3>
+          <p>
+            Notes may introduce concepts, structural models, or emerging approaches that are still being sharpened.
+          </p>
+        </div>
+
+        <div class="glass-card reveal">
+          <div class="card-number">02</div>
+          <h3>Research Development</h3>
+          <p>
+            This layer allows broader research themes to move toward clearer form through concise but disciplined writing.
+          </p>
+        </div>
+
+        <div class="glass-card reveal">
+          <div class="card-number">03</div>
+          <h3>Platform Transparency</h3>
+          <p>
+            Notes show how Darkvoid thinks in motion — not only what is complete, but how serious ideas are being built.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="note-archive">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-label">Current Note Archive</div>
+        <h2>
+          Selected developing notes and conceptual directions.
+        </h2>
+
+        <p>
+          This archive will expand as Darkvoid’s working research layer grows. Notes may evolve into publications, project frameworks, or broader thematic strands across the platform.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-number">Working Note</div>
+          <h3>A3M Pipeline</h3>
+          <p>
+            A developing structural framework exploring the relationship between algorithmic escalation, access failure, payment enablement, and offline harm.
+          </p>
+          <a href="a3m-pipeline.html" class="text-link">Open note</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-number">Framework Direction</div>
+          <h3>Health Access Systems</h3>
+          <p>
+            A developing analytical direction examining how healthcare access, structural design, and institutional failure shape lived outcomes.
+          </p>
+          <a href="health-access.html" class="text-link">Open note</a>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-number">Policy Concept</div>
+          <h3>One Card</h3>
+          <p>
+            A systems-oriented concept examining whether fragmented welfare and public-service access could be restructured through a more coherent civic model.
+          </p>
+          <a href="one-card.html" class="text-link">Open note</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section" id="note-method">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-label">Method</div>
+        <h2>
+          Notes are not placeholders. They are disciplined provisional forms.
+        </h2>
+
+        <p>
+          Each note within Darkvoid is intended to hold structure, direction, and analytical seriousness even at an early stage. The purpose is not to publish unfinished thought casually, but to provide a coherent layer where ideas can be tested, shaped, and prepared for deeper development.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="glass-card reveal">
+          <div class="card-number">01</div>
+          <h3>Clarity Before Scale</h3>
+          <p>
+            Notes help ideas become clearer before they are expanded into wider frameworks, projects, or publications.
+          </p>
+        </div>
+
+        <div class="glass-card reveal">
+          <div class="card-number">02</div>
+          <h3>Structure Before Performance</h3>
+          <p>
+            The aim is not volume or speed, but conceptual discipline and stronger analytical architecture.
+          </p>
+        </div>
+
+        <div class="glass-card reveal">
+          <div class="card-number">03</div>
+          <h3>Development With Direction</h3>
+          <p>
+            Every note should point toward something larger — a publication, a framework, a policy direction, or a more developed line of inquiry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="next-steps">
+    <div class="container two-col">
+      <div class="panel panel-dark reveal">
+        <div class="section-label">What This Leads Toward</div>
+        <h2>
+          The note layer supports the future publication layer of Darkvoid.
+        </h2>
+      </div>
+
+      <div class="panel panel-light reveal">
+        <p>
+          Notes allow early frameworks and conceptual directions to gather shape without forcing them prematurely into finished form. Over time, selected pieces may grow into more formal essays, research papers, policy documents, or flagship project structures.
+        </p>
+        <p>
+          In that sense, Darkvoid Notes is not separate from publication — it is part of the route toward it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact-strip">
+    <div class="container">
+      <div class="contact-panel reveal">
+        <div class="section-label">Discussion &amp; Enquiry</div>
+        <h2>Open to serious dialogue around developing notes, frameworks, and research directions.</h2>
+        <p>
+          Darkvoid welcomes thoughtful communication around emerging ideas, conceptual frameworks, future publications, and wider analytical discussion.
+        </p>
+
+        <div class="contact-actions">
+          <a href="contact.html#contact-form" class="btn btn-dark">Open Contact Form</a>
+          <div class="pill">Ireland • Global</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner footer-grid">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Darkvoid mark">
+      <span>DARKVOID — Notes</span>
+    </div>
+
+    <nav class="footer-links">
+      <a href="index.html#about">About</a>
+      <a href="platform.html">Platform</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="notes.html">Notes</a>
+      <a href="publications.html">Publications</a>
+      <a href="contact.html#contact-form">Contact</a>
+    </nav>
+
+    <div class="footer-meta">
+      Independent research • Systems thinking • Institutional analysis
     </div>
   </div>
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">
-        <img src="logo.png" alt="Darkvoid logo">
-      </a>
-
-      <nav class="nav-links">
-        <a href="index.html#about">About</a>
-        <a href="platform.html">Platform</a>
-        <a href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="notes.html" class="active">Notes</a>
-        <a href="publications.html">Publications</a>
-        <a href="contact.html#contact-form">Contact</a>
-      </nav>
+  <div class="container footer-bottom-elite">
+    <div></div>
+    <div class="footer-bottom-center">All rights reserved © Darkvoid by Rd</div>
+    <div class="footer-bottom-right">
+      <a href="privacy.html" class="privacy-link">Privacy</a>
     </div>
-  </header>
+  </div>
+</footer>
 
-  <main>
-
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-content reveal">
-          <p class="hero-kicker">Developing Notes &amp; Frameworks</p>
-
-          <div class="eyebrow">
-            <span class="dot"></span>
-            <span>Darkvoid Notes</span>
-          </div>
-
-          <h1>
-            Developing research notes, early frameworks, and structured analytical directions.
-          </h1>
-
-          <p class="hero-text">
-            Darkvoid Notes gathers early frameworks, emerging research directions, and developing analytical pieces that sit between broad research themes and more formal future publications. It is a working layer of the platform — one that shows how ideas are being organised, refined, and prepared for deeper expression.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#note-archive" class="btn btn-dark">View Notes</a>
-            <a href="publications.html" class="btn btn-light">View Publications</a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="label">Status</span>
-              <span class="value">Working layer of the platform</span>
-            </div>
-            <div class="stat">
-              <span class="label">Focus</span>
-              <span class="value">Early ideas • Frameworks • Structured thought</span>
-            </div>
-            <div class="stat">
-              <span class="label">Role</span>
-              <span class="value">Bridge between research and publication</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal">
-          <div class="visual">
-            <div class="halo"></div>
-            <div class="ring ring1"></div>
-            <div class="ring ring2"></div>
-            <div class="ring ring3"></div>
-            <div class="ring-soft"></div>
-            <div class="orbit-line"></div>
-
-            <div class="logo-panel">
-              <div class="logo-wrap">
-                <img src="logo.png" class="hero-logo" alt="Darkvoid Notes">
-              </div>
-              <p class="panel-text">
-                A working archive of emerging analytical directions, early frameworks, and developing intellectual structure.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark-section" id="notes-purpose">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">Purpose of This Layer</div>
-          <h2>
-            Not everything begins as a finished paper. Some ideas need a structured place to develop first.
-          </h2>
-
-          <p>
-            Darkvoid Notes exists for work that is serious but still forming — ideas with direction, analytical value, and intellectual promise that benefit from a more open working stage before becoming formal publications or larger project architectures.
-          </p>
-        </div>
-
-        <div class="cards">
-          <div class="glass-card reveal">
-            <div class="card-number">01</div>
-            <h3>Early Frameworks</h3>
-            <p>
-              Notes may introduce concepts, structural models, or emerging approaches that are still being sharpened.
-            </p>
-          </div>
-
-          <div class="glass-card reveal">
-            <div class="card-number">02</div>
-            <h3>Research Development</h3>
-            <p>
-              This layer allows broader research themes to move toward clearer form through concise but disciplined writing.
-            </p>
-          </div>
-
-          <div class="glass-card reveal">
-            <div class="card-number">03</div>
-            <h3>Platform Transparency</h3>
-            <p>
-              Notes show how Darkvoid thinks in motion — not only what is complete, but how serious ideas are being built.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="note-archive">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">Current Note Archive</div>
-          <h2>
-            Selected developing notes and conceptual directions.
-          </h2>
-
-          <p>
-            This archive will expand as Darkvoid’s working research layer grows. Notes may evolve into publications, project frameworks, or broader thematic strands across the platform.
-          </p>
-        </div>
-
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card-number">Working Note</div>
-            <h3>A3M Pipeline</h3>
-            <p>
-              A developing structural framework exploring the relationship between algorithmic escalation, access failure, payment enablement, and offline harm.
-            </p>
-            <a href="a3m-pipeline.html" class="text-link">Open note</a>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-number">Framework Direction</div>
-            <h3>Health Access Systems</h3>
-            <p>
-              A developing analytical direction examining how healthcare access, structural design, and institutional failure shape lived outcomes.
-            </p>
-            <a href="health-access.html" class="text-link">Open note</a>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-number">Policy Concept</div>
-            <h3>One Card</h3>
-            <p>
-              A systems-oriented concept examining whether fragmented welfare and public-service access could be restructured through a more coherent civic model.
-            </p>
-            <a href="one-card.html" class="text-link">Open note</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark-section" id="note-method">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-label">Method</div>
-          <h2>
-            Notes are not placeholders. They are disciplined provisional forms.
-          </h2>
-
-          <p>
-            Each note within Darkvoid is intended to hold structure, direction, and analytical seriousness even at an early stage. The purpose is not to publish unfinished thought casually, but to provide a coherent layer where ideas can be tested, shaped, and prepared for deeper development.
-          </p>
-        </div>
-
-        <div class="cards">
-          <div class="glass-card reveal">
-            <div class="card-number">01</div>
-            <h3>Clarity Before Scale</h3>
-            <p>
-              Notes help ideas become clearer before they are expanded into wider frameworks, projects, or publications.
-            </p>
-          </div>
-
-          <div class="glass-card reveal">
-            <div class="card-number">02</div>
-            <h3>Structure Before Performance</h3>
-            <p>
-              The aim is not volume or speed, but conceptual discipline and stronger analytical architecture.
-            </p>
-          </div>
-
-          <div class="glass-card reveal">
-            <div class="card-number">03</div>
-            <h3>Development With Direction</h3>
-            <p>
-              Every note should point toward something larger — a publication, a framework, a policy direction, or a more developed line of inquiry.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="next-steps">
-      <div class="container two-col">
-        <div class="panel panel-dark reveal">
-          <div class="section-label">What This Leads Toward</div>
-          <h2>
-            The note layer supports the future publication layer of Darkvoid.
-          </h2>
-        </div>
-
-        <div class="panel panel-light reveal">
-          <p>
-            Notes allow early frameworks and conceptual directions to gather shape without forcing them prematurely into finished form. Over time, selected pieces may grow into more formal essays, research papers, policy documents, or flagship project structures.
-          </p>
-          <p>
-            In that sense, Darkvoid Notes is not separate from publication — it is part of the route toward it.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact-strip">
-      <div class="container">
-        <div class="contact-panel reveal">
-          <div class="section-label">Discussion &amp; Enquiry</div>
-          <h2>Open to serious dialogue around developing notes, frameworks, and research directions.</h2>
-          <p>
-            Darkvoid welcomes thoughtful communication around emerging ideas, conceptual frameworks, future publications, and wider analytical discussion.
-          </p>
-
-          <div class="contact-actions">
-            <a href="contact.html#contact-form" class="btn btn-dark">Open Contact Form</a>
-            <div class="pill">Ireland • Global</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner footer-grid">
-      <div class="footer-brand">
-        <img src="logo.png" alt="Darkvoid mark">
-        <span>DARKVOID — Notes</span>
-      </div>
-
-      <nav class="footer-links">
-        <a href="index.html#about">About</a>
-        <a href="platform.html">Platform</a>
-        <a href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="notes.html">Notes</a>
-        <a href="publications.html">Publications</a>
-        <a href="contact.html#contact-form">Contact</a>
-      </nav>
-
-      <div class="footer-meta">
-        Independent research • Systems thinking • Institutional analysis
-      </div>
-    </div>
-
-    <div class="container footer-rights">
-      All rights reserved © Darkvoid by Rd
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

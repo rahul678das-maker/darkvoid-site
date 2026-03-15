@@ -33,6 +33,63 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+    .page-fade{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(255,255,255,.06), transparent 18%),
+        radial-gradient(circle at 84% 26%, rgba(255,255,255,.05), transparent 16%),
+        radial-gradient(circle at 50% 100%, rgba(11,26,36,.04), transparent 24%);
+      opacity:.85;
+    }
+
+    .section-soft{
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(240,242,239,.78), rgba(228,232,228,.92)),
+        radial-gradient(circle at 18% 12%, rgba(11,26,36,.035), transparent 20%),
+        radial-gradient(circle at 82% 70%, rgba(11,26,36,.03), transparent 18%);
+      border-top:1px solid rgba(11,26,36,.05);
+      border-bottom:1px solid rgba(11,26,36,.05);
+    }
+
+    .section-soft::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(11,26,36,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11,26,36,.035) 1px, transparent 1px);
+      background-size:42px 42px;
+      opacity:.22;
+      pointer-events:none;
+    }
+
+    .section-soft .section-head,
+    .section-soft .cards,
+    .section-soft .two-col{
+      position:relative;
+      z-index:1;
+    }
+
+    .section-soft .panel-light,
+    .section-soft .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(250,251,249,.62));
+      border:1px solid rgba(11,26,36,.08);
+      box-shadow:0 18px 56px rgba(11,26,36,.08);
+      backdrop-filter:blur(14px);
+    }
+
+    .section-soft .panel-dark{
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.06), transparent 30%),
+        linear-gradient(180deg, #0a131b 0%, #0f1a23 100%);
+      box-shadow:0 26px 90px rgba(11,26,36,.18);
+    }
+
     .signal-motion{
       position:relative;
       overflow:hidden;
@@ -157,9 +214,6 @@
     .framework-cinema-map,
     .framework-cinema-side{
       border-radius:34px;
-      background:rgba(255,255,255,.82);
-      border:1px solid rgba(11,26,36,.08);
-      box-shadow:var(--shadow-strong);
       position:relative;
       overflow:hidden;
     }
@@ -167,6 +221,12 @@
     .framework-cinema-map{
       min-height:420px;
       padding:30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.76), rgba(246,248,245,.64)),
+        radial-gradient(circle at 18% 18%, rgba(11,26,36,.04), transparent 22%);
+      border:1px solid rgba(11,26,36,.08);
+      box-shadow:0 22px 70px rgba(11,26,36,.10);
+      backdrop-filter:blur(14px);
     }
 
     .framework-cinema-map::before{
@@ -247,8 +307,11 @@
       gap:18px;
       align-content:start;
       background:
-        radial-gradient(circle at top right, rgba(11,26,36,.06), transparent 26%),
-        rgba(255,255,255,.84);
+        linear-gradient(180deg, rgba(252,253,251,.78), rgba(240,244,239,.70)),
+        radial-gradient(circle at top right, rgba(11,26,36,.05), transparent 26%);
+      border:1px solid rgba(11,26,36,.08);
+      box-shadow:0 22px 70px rgba(11,26,36,.09);
+      backdrop-filter:blur(12px);
     }
 
     .cinema-side-block{
@@ -383,6 +446,7 @@
   <div class="bg"></div>
   <div class="grid"></div>
   <div class="ambient"></div>
+  <div class="page-fade"></div>
 
   <div class="signal-bar">
     <div class="container signal-inner">
@@ -494,7 +558,7 @@
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="section section-soft" id="about">
       <div class="container two-col">
         <div class="panel panel-dark reveal">
           <div class="section-label">About Darkvoid</div>
@@ -552,7 +616,7 @@
       </div>
     </section>
 
-    <section class="section framework-cinema" id="home-platform">
+    <section class="section section-soft framework-cinema" id="home-platform">
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">Platform Logic</div>
@@ -613,7 +677,7 @@
       </div>
     </section>
 
-    <section class="section" id="featured-structure">
+    <section class="section section-soft" id="featured-structure">
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">Platform Structure</div>

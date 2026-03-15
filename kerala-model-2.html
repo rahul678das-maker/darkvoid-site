@@ -4,20 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kerala Model 2.0 | Darkvoid</title>
-  <meta name="description" content="Kerala Model 2.0 — a Darkvoid project exploring participation, resilience, contribution, and long-range public-value design." />
+  <meta name="description" content="Kerala Model 2.0 — a Darkvoid project exploring how social development, civic logic, economic structure, and modern systems thinking can be reinterpreted in a renewed framework." />
 
   <meta property="og:title" content="Kerala Model 2.0 | Darkvoid" />
-  <meta property="og:description" content="A Darkvoid project exploring participation, resilience, contribution, and long-range public-value design." />
+  <meta property="og:description" content="A Darkvoid project exploring how social development, civic logic, economic structure, and modern systems thinking can be reinterpreted in a renewed framework." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://darkvoid.ie/kerala-model-2.html" />
   <meta property="og:image" content="https://darkvoid.ie/logo.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kerala Model 2.0 | Darkvoid" />
-  <meta name="twitter:description" content="A Darkvoid project exploring participation, resilience, contribution, and long-range public-value design." />
+  <meta name="twitter:description" content="A Darkvoid project exploring how social development, civic logic, economic structure, and modern systems thinking can be reinterpreted in a renewed framework." />
   <meta name="twitter:image" content="https://darkvoid.ie/logo.png" />
 
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="DarkVoid" />
+  <link rel="manifest" href="/site.webmanifest" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,6 +33,17 @@
     .project-hero-dark .visual{
       background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
       border-color:rgba(255,255,255,.18);
+    }
+
+    .project-hero-dark .btn-light{
+      background:#f4f7fb;
+      color:#081018;
+      border-color:#f4f7fb;
+      box-shadow:0 18px 60px rgba(255,255,255,.12);
+    }
+
+    .project-hero-dark .btn-light:hover{
+      transform:translateY(-2px);
     }
 
     .project-dark{
@@ -59,14 +76,14 @@
     .project-dark h2,
     .project-dark h3{color:#fff}
 
-    .kerala-grid{
+    .model-grid{
       margin-top:40px;
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:20px;
     }
 
-    .kerala-stage{
+    .model-stage{
       position:relative;
       overflow:hidden;
       border-radius:30px;
@@ -78,12 +95,12 @@
       transition:transform .25s ease, background .25s ease;
     }
 
-    .kerala-stage:hover{
+    .model-stage:hover{
       transform:translateY(-4px);
       background:rgba(255,255,255,.09);
     }
 
-    .kerala-stage-number{
+    .model-stage-number{
       display:inline-flex;
       width:44px;
       height:44px;
@@ -98,13 +115,13 @@
       margin-bottom:18px;
     }
 
-    .kerala-stage p{
+    .model-stage p{
       color:rgba(255,255,255,.72);
       font-size:15px;
       line-height:1.8;
     }
 
-    .kerala-line{
+    .model-line{
       position:relative;
       margin-top:18px;
       height:2px;
@@ -113,22 +130,22 @@
       overflow:hidden;
     }
 
-    .kerala-line::after{
+    .model-line::after{
       content:"";
       position:absolute;
       inset:0;
       background:linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
-      animation:keralaFlow 6s linear infinite;
+      animation:modelFlow 6s linear infinite;
     }
 
-    .kerala-notes{
+    .model-notes{
       margin-top:34px;
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:20px;
     }
 
-    .kerala-note{
+    .model-note{
       border-radius:28px;
       padding:26px;
       background:rgba(255,255,255,.82);
@@ -136,26 +153,80 @@
       box-shadow:var(--shadow);
     }
 
-    .kerala-note p{
+    .model-note p{
       margin:12px 0 0;
       font-size:15px;
       line-height:1.8;
       color:var(--muted);
     }
 
-    @keyframes keralaFlow{
+    .footer-bottom-elite{
+      padding:0 0 24px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:16px;
+    }
+
+    .footer-bottom-center{
+      justify-self:center;
+      font-size:12px;
+      letter-spacing:.08em;
+      color:var(--muted2);
+      text-align:center;
+    }
+
+    .footer-bottom-right{
+      justify-self:end;
+    }
+
+    .privacy-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(11,26,36,.14);
+      background:rgba(255,255,255,.90);
+      color:var(--text);
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      box-shadow:0 12px 30px rgba(11,26,36,.06);
+      transition:.22s ease;
+    }
+
+    .privacy-link:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 36px rgba(11,26,36,.10);
+    }
+
+    @keyframes modelFlow{
       0%{transform:translateX(-120%)}
       100%{transform:translateX(120%)}
     }
 
     @media (max-width:1080px){
-      .kerala-grid,
-      .kerala-notes{grid-template-columns:1fr 1fr}
+      .model-grid,
+      .model-notes{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:900px){
+      .footer-bottom-elite{
+        grid-template-columns:1fr;
+      }
+
+      .footer-bottom-center,
+      .footer-bottom-right{
+        justify-self:center;
+      }
     }
 
     @media (max-width:760px){
-      .kerala-grid,
-      .kerala-notes{grid-template-columns:1fr}
+      .model-grid,
+      .model-notes{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -205,30 +276,30 @@
           </div>
 
           <h1>
-            A long-range socio-economic framework for participation, resilience, contribution, and public-value design.
+            Reinterpreting social development, civic strength, and economic structure through a renewed systems framework.
           </h1>
 
           <p class="hero-text">
-            Kerala Model 2.0 is a Darkvoid project exploring how a renewed social and economic framework could be built around participation, contribution, resilience, collective capacity, and wider public value. It is concerned not with nostalgic repetition of older models, but with how a new architecture could respond to contemporary realities while preserving social seriousness.
+            Kerala Model 2.0 is a Darkvoid project exploring whether the legacy of social development associated with Kerala can be rethought for a new era of structural complexity. It asks how education, health, migration, civic culture, digital infrastructure, community funding, and local resilience might be organised into a modern systems framework rather than treated as separate policy fragments.
           </p>
 
           <div class="hero-actions">
-            <a href="#kerala-chain" class="btn btn-dark">View the Structure</a>
+            <a href="#model-chain" class="btn btn-dark">View the Structure</a>
             <a href="#framework" class="btn btn-light">View the Framework</a>
           </div>
 
           <div class="hero-stats">
             <div class="stat">
               <span class="label">Framework Status</span>
-              <span class="value">Early Framework Live</span>
+              <span class="value">Framework Page Live</span>
             </div>
             <div class="stat">
               <span class="label">Domain</span>
-              <span class="value">Socio-economic design • Participation • Public value</span>
+              <span class="value">Social development • Civic systems • Regional strategy</span>
             </div>
             <div class="stat">
               <span class="label">Purpose</span>
-              <span class="value">Understanding renewal through structure, resilience, and participation</span>
+              <span class="value">Understanding renewal through systems thinking</span>
             </div>
           </div>
         </div>
@@ -247,7 +318,7 @@
                 <img src="logo.png" class="hero-logo" alt="Kerala Model 2.0">
               </div>
               <p class="panel-text">
-                A Darkvoid framework for rethinking public value, participation, and development through a more resilient socio-economic architecture.
+                A Darkvoid project for thinking about how social development models can be renewed through civic design, community strength, and systems coherence.
               </p>
             </div>
           </div>
@@ -260,66 +331,66 @@
         <div class="panel panel-dark reveal">
           <div class="section-label">The Problem</div>
           <h2>
-            Development weakens when participation, resilience, and collective structure are no longer held together.
+            Legacy development models can lose force when their structural renewal is not clearly reimagined.
           </h2>
         </div>
 
         <div class="panel panel-light reveal">
           <p>
-            A development model cannot be judged only by income, growth, or surface indicators. It must also be judged by how communities participate, how social value is retained, how resilience is built, and whether public systems remain connected to collective capacity.
+            Kerala has long been associated with strong human development, literacy, health indicators, migration-linked resilience, and civic depth. But historic achievement does not automatically resolve modern structural pressures. Labour markets change, public systems strain, migration reshapes local life, and community strength may weaken without new institutional form.
           </p>
           <p>
-            Kerala Model 2.0 exists to explore what a renewed framework might look like if social seriousness, local participation, and structural coherence were treated as central rather than secondary.
+            Kerala Model 2.0 exists to ask whether the strengths historically associated with Kerala can be reorganised into a clearer modern architecture — one that links social development to structural design, civic participation, economic strategy, and future-facing systems thinking.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="section project-dark" id="kerala-chain">
+    <section class="section project-dark" id="model-chain">
       <div class="container">
         <div class="section-head reveal">
-          <div class="section-label">Development Structure</div>
-          <h2>Four linked layers shaping a renewed socio-economic model.</h2>
+          <div class="section-label">Model Structure</div>
+          <h2>Four linked layers shaping renewal through a modern Kerala systems framework.</h2>
           <p>
-            Kerala Model 2.0 should be read as a long-range architecture. Stronger development emerges when participation, contribution, resilience, and public value are built as linked layers rather than isolated ambitions.
+            Kerala Model 2.0 should be read as a structural pathway. Renewal depends not on one policy gesture, but on how civic, economic, institutional, and community strengths are connected and redesigned.
           </p>
         </div>
 
-        <div class="kerala-grid">
-          <div class="kerala-stage reveal">
-            <div class="kerala-stage-number">01</div>
-            <h3>Participation Base</h3>
+        <div class="model-grid">
+          <div class="model-stage reveal">
+            <div class="model-stage-number">01</div>
+            <h3>Social Foundations</h3>
             <p>
-              Development begins with people being structurally included in contribution, decision, support, and local capacity formation.
+              Education, health, literacy, welfare logic, and public awareness remain core structural strengths that shape civic capacity.
             </p>
-            <div class="kerala-line"></div>
+            <div class="model-line"></div>
           </div>
 
-          <div class="kerala-stage reveal">
-            <div class="kerala-stage-number">02</div>
-            <h3>Collective Contribution</h3>
+          <div class="model-stage reveal">
+            <div class="model-stage-number">02</div>
+            <h3>Community & Civic Structure</h3>
             <p>
-              Distributed forms of giving, engagement, and local involvement create a stronger social base than purely external or centralised dependency.
+              Local participation, collective trust, neighbourhood networks, and public-minded culture can become stronger if given renewed institutional form.
             </p>
-            <div class="kerala-line"></div>
+            <div class="model-line"></div>
           </div>
 
-          <div class="kerala-stage reveal">
-            <div class="kerala-stage-number">03</div>
-            <h3>Resilience Formation</h3>
+          <div class="model-stage reveal">
+            <div class="model-stage-number">03</div>
+            <h3>Economic & Systems Renewal</h3>
             <p>
-              Community capacity, social infrastructure, and local systems strengthen when collective participation becomes durable and visible.
+              Migration, digital infrastructure, micro-contribution systems, skilled development, and institutional redesign may become key to the next phase of resilience.
             </p>
-            <div class="kerala-line"></div>
+            <div class="model-line"></div>
           </div>
 
-          <div class="kerala-stage reveal">
-            <div class="kerala-stage-number">04</div>
-            <h3>Public Value Renewal</h3>
+          <div class="model-stage reveal">
+            <div class="model-stage-number">04</div>
+            <h3>Modern Development Coherence</h3>
             <p>
-              The result is a more grounded development architecture where social value, institutional strength, and long-term resilience reinforce one another.
+              The result may be a more integrated model of human development, civic strength, and public innovation suited to contemporary structural reality.
             </p>
-            <div class="kerala-line"></div>
+            <div class="model-line"></div>
           </div>
         </div>
       </div>
@@ -329,34 +400,34 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">Why Existing Thinking Misses It</div>
-          <h2>Development is often discussed too narrowly when its deeper strength depends on structure.</h2>
+          <h2>Development is harder to renew when it is remembered symbolically but not restructured institutionally.</h2>
           <p>
-            Economic discussion may emphasise growth or expenditure while paying less attention to whether social participation, local resilience, and public-value capacity remain structurally strong.
+            Public narratives may celebrate the older model while giving less attention to what its modern renewal would require in terms of institutions, systems design, economic pathways, and civic coordination.
           </p>
         </div>
 
         <div class="cards">
           <div class="card reveal">
             <div class="card-number">01</div>
-            <h3>Growth Without Social Architecture</h3>
+            <h3>Historic Freeze</h3>
             <p>
-              Development can appear active while lacking a strong underlying structure of participation, contribution, and resilience.
+              A model may be admired historically while remaining underdeveloped as a modern framework for changing structural realities.
             </p>
           </div>
 
           <div class="card reveal">
             <div class="card-number">02</div>
-            <h3>Fragmented Public Value</h3>
+            <h3>Fragmented Policy Thinking</h3>
             <p>
-              Social benefit becomes weaker when institutions, communities, and contribution systems are not connected coherently.
+              Education, health, migration, local economy, and civic participation are often treated separately even when they form one wider development logic.
             </p>
           </div>
 
           <div class="card reveal">
             <div class="card-number">03</div>
-            <h3>Dependency Without Regeneration</h3>
+            <h3>Weak Future Architecture</h3>
             <p>
-              Systems may continue functioning while losing the regenerative local participation needed for stronger long-range resilience.
+              Without clearer institutional redesign, strong social legacy may struggle to become a strong future-facing development structure.
             </p>
           </div>
         </div>
@@ -367,34 +438,34 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">Darkvoid Framework</div>
-          <h2>Kerala Model 2.0 is a socio-economic architecture framework, not just a policy slogan.</h2>
+          <h2>Kerala Model 2.0 is a systems-renewal framework, not just a nostalgic reference to a past development story.</h2>
           <p>
-            Its value lies in asking how public value can be renewed through deeper relationships between participation, contribution, resilience, and institutional design.
+            Its value lies in helping social development be reinterpreted through civic design, institutional integration, economic renewal, and structural coherence rather than through static reputation alone.
           </p>
         </div>
 
         <div class="cards">
           <div class="glass-card reveal">
             <div class="card-number">01</div>
-            <h3>Map Structural Capacity</h3>
+            <h3>Trace the Legacy</h3>
             <p>
-              Use the framework to understand how development strength depends on more than macro indicators alone.
+              Use the framework to identify which underlying strengths gave the older model its force and why they still matter.
             </p>
           </div>
 
           <div class="glass-card reveal">
             <div class="card-number">02</div>
-            <h3>Design for Participation</h3>
+            <h3>Locate Renewal Points</h3>
             <p>
-              Explore how contribution and local involvement can become integral to wider development architecture.
+              Identify where new systems design, digital structure, community funding, or public coordination could modernise the model.
             </p>
           </div>
 
           <div class="glass-card reveal">
             <div class="card-number">03</div>
-            <h3>Support Long-Range Renewal</h3>
+            <h3>Support Better Strategic Thinking</h3>
             <p>
-              Shift from reactive development talk toward a deeper framework of public value, resilience, and social regeneration.
+              Shift the conversation from symbolic praise toward clearer design for future-facing social and economic coherence.
             </p>
           </div>
         </div>
@@ -405,31 +476,31 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="section-label">Policy & Institutional Relevance</div>
-          <h2>Why this project matters beyond regional development language.</h2>
+          <h2>Why this project matters beyond regional development commentary.</h2>
           <p>
-            Kerala Model 2.0 can support serious discussion across socio-economic design, development theory, participation systems, community-linked policy thinking, and broader public-value strategy.
+            Kerala Model 2.0 can support more serious discussion across social policy, civic systems, migration, local public capacity, community infrastructure, and long-range development strategy.
           </p>
         </div>
 
-        <div class="kerala-notes">
-          <div class="kerala-note reveal">
-            <h3>Development Thinking</h3>
+        <div class="model-notes">
+          <div class="model-note reveal">
+            <h3>Social Development</h3>
             <p>
-              The project helps show how development should be evaluated through participation and resilience as well as through economic measures.
+              The project helps show that human development legacy remains powerful when it is actively redesigned rather than merely remembered.
             </p>
           </div>
 
-          <div class="kerala-note reveal">
-            <h3>Public Value</h3>
+          <div class="model-note reveal">
+            <h3>Civic Systems</h3>
             <p>
-              It offers a framework for linking community capacity, contribution, and institutional strength within one larger socio-economic architecture.
+              It offers a framework for understanding how community logic, public trust, and institutional structure can reinforce one another.
             </p>
           </div>
 
-          <div class="kerala-note reveal">
-            <h3>Future Development</h3>
+          <div class="model-note reveal">
+            <h3>Future Research</h3>
             <p>
-              It creates a basis for future notes, models, public frameworks, and longer-range work on structural renewal and social-value design.
+              It creates a basis for future essays, policy models, diagrams, pilot proposals, and deeper work on Kerala, community systems, and development renewal.
             </p>
           </div>
         </div>
@@ -441,16 +512,16 @@
         <div class="panel panel-dark reveal">
           <div class="section-label">Future Development</div>
           <h2>
-            Kerala Model 2.0 can evolve into a major Darkvoid flagship on socio-economic renewal, participation, and public-value design.
+            Kerala Model 2.0 can evolve into a major Darkvoid strand on civic development, regional systems, and modern social architecture.
           </h2>
         </div>
 
         <div class="panel panel-light reveal">
           <p>
-            This page establishes the conceptual base of a much larger project direction. Over time it can expand into formal model papers, structural diagrams, contribution systems, pilot concepts, and deeper public-facing frameworks for social and economic renewal.
+            This page establishes the conceptual foundation of a wider analytical direction. Over time it can expand into development frameworks, community-funding models, pilot concepts, public-system diagrams, migration-linked strategy, and more formal research on regional renewal.
           </p>
           <p>
-            As Darkvoid develops further, Kerala Model 2.0 should stand as one of its most ambitious flagship projects — because it aims not only to interpret systems, but to imagine how they may be rebuilt more coherently.
+            As Darkvoid develops further, Kerala Model 2.0 should stand as one of its defining civic-development projects — because it asks not only what a society once achieved, but how its deeper strengths can be redesigned for a new era.
           </p>
         </div>
       </div>
@@ -480,9 +551,9 @@
       <div class="container">
         <div class="contact-panel reveal">
           <div class="section-label">Project Enquiries</div>
-          <h2>Open to serious discussion around Kerala Model 2.0, socio-economic design, and public-value renewal.</h2>
+          <h2>Open to serious discussion around Kerala Model 2.0, civic development, and systems-based social renewal.</h2>
           <p>
-            Darkvoid welcomes conversation around the framework itself, its future development, and its wider relevance across policy, development, and institutional design.
+            Darkvoid welcomes conversation around the framework itself, its future development, and its wider relevance across development strategy, community systems, regional thinking, and institutional design.
           </p>
 
           <div class="contact-actions">
@@ -515,8 +586,13 @@
         Independent research • Systems thinking • Institutional analysis
       </div>
     </div>
-    <div class="container footer-rights">
-      All rights reserved © Darkvoid by Rd
+
+    <div class="container footer-bottom-elite">
+      <div></div>
+      <div class="footer-bottom-center">All rights reserved © Darkvoid by Rd</div>
+      <div class="footer-bottom-right">
+        <a href="privacy.html" class="privacy-link">Privacy</a>
+      </div>
     </div>
   </footer>
 

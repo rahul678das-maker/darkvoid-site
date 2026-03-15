@@ -17,7 +17,13 @@
   <meta name="twitter:description" content="A Darkvoid framework mapping escalation from algorithmic exposure to offline harm through linked institutional and economic stages." />
   <meta name="twitter:image" content="https://darkvoid.ie/logo.png" />
 
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="DarkVoid" />
+  <link rel="manifest" href="/site.webmanifest" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -143,6 +149,49 @@
       color:var(--muted);
     }
 
+    .footer-bottom-elite{
+      padding:0 0 24px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:16px;
+    }
+
+    .footer-bottom-center{
+      justify-self:center;
+      font-size:12px;
+      letter-spacing:.08em;
+      color:var(--muted2);
+      text-align:center;
+    }
+
+    .footer-bottom-right{
+      justify-self:end;
+    }
+
+    .privacy-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid rgba(11,26,36,.14);
+      background:rgba(255,255,255,.90);
+      color:var(--text);
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      box-shadow:0 12px 30px rgba(11,26,36,.06);
+      transition:.22s ease;
+    }
+
+    .privacy-link:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 36px rgba(11,26,36,.10);
+    }
+
     @keyframes a3mFlow{
       0%{transform:translateX(-120%)}
       100%{transform:translateX(120%)}
@@ -151,6 +200,17 @@
     @media (max-width:1080px){
       .a3m-grid,
       .a3m-notes{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:900px){
+      .footer-bottom-elite{
+        grid-template-columns:1fr;
+      }
+
+      .footer-bottom-center,
+      .footer-bottom-right{
+        justify-self:center;
+      }
     }
 
     @media (max-width:760px){
@@ -500,7 +560,7 @@
     <div class="container footer-inner footer-grid">
       <div class="footer-brand">
         <img src="logo.png" alt="Darkvoid mark">
-        <span>DARKVOID — Projects</span>
+        <span>DARKVOID — A3M Pipeline</span>
       </div>
 
       <nav class="footer-links">
@@ -518,8 +578,12 @@
       </div>
     </div>
 
-    <div class="container footer-rights">
-      All rights reserved © Darkvoid by Rd
+    <div class="container footer-bottom-elite">
+      <div></div>
+      <div class="footer-bottom-center">All rights reserved © Darkvoid by Rd</div>
+      <div class="footer-bottom-right">
+        <a href="privacy.html" class="privacy-link">Privacy</a>
+      </div>
     </div>
   </footer>
 
